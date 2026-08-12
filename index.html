@@ -61,8 +61,15 @@
                     <button id="nav-frequency" onclick="switchPage('frequency')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-wave-square text-xs mr-1"></i>ทดสอบคลื่นเสียง & Visualizer</button>
                     <button id="nav-calculator" onclick="switchPage('calculator')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-calculator text-xs mr-1"></i>คำนวณสเปก</button>
                     <button id="nav-booking" onclick="switchPage('booking')" class="text-gray-300 font-medium hover:text-brand transition">จองคิวติดตั้ง</button>
+                    <button id="nav-admin" onclick="checkAdminPage()" class="text-yellow-500 font-medium hover:text-yellow-400 transition hidden"><i class="fas fa-user-shield text-xs mr-1"></i>แผงควบคุมแอดมิน</button>
                 </div>
-                <div class="hidden md:flex">
+                <div class="hidden md:flex items-center space-x-4">
+                    <button onclick="openLoginModal()" id="login-btn-nav" class="text-gray-400 hover:text-white transition text-sm flex items-center">
+                        <i class="fas fa-lock mr-1.5"></i> ล็อกอินแอดมิน
+                    </button>
+                    <button onclick="logoutAdmin()" id="logout-btn-nav" class="text-red-400 hover:text-red-300 transition text-sm hidden flex items-center">
+                        <i class="fas fa-sign-out-alt mr-1.5"></i> ออกจากระบบ
+                    </button>
                     <button onclick="switchPage('booking')" class="bg-brand hover:bg-red-700 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-red-900/50">
                         จองคิวทันที
                     </button>
@@ -70,6 +77,37 @@
             </div>
         </div>
     </nav>
+
+    <!-- Modal เข้าสู่ระบบ Admin -->
+    <div id="adminModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="card-effect rounded-3xl p-8 max-w-md w-full border-brand/40 shadow-2xl relative">
+            <button onclick="closeLoginModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-brand/20 text-brand rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">เข้าสู่ระบบผู้ดูแล</h3>
+                <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน</p>
+            </div>
+            
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">ชื่อผู้ใช้ (Username)</label>
+                    <input type="text" id="adminUsername" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">รหัสผ่าน (Password)</label>
+                    <input type="password" id="adminPassword" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                </div>
+                <div id="loginError" class="text-red-500 text-xs hidden text-center">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</div>
+                <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3 rounded-xl transition mt-2">
+                    เข้าสู่ระบบ
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- 1. หน้าหลัก (Home) -->
     <div id="page-home" class="page-section fade-in">
@@ -478,20 +516,131 @@
         </section>
     </div>
 
+    <!-- 6. หน้า Admin Control Panel (แสดงเฉพาะเมื่อล็อกอิน) -->
+    <div id="page-admin" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white"><i class="fas fa-user-shield text-yellow-500 mr-2"></i> ระบบจัดการหลังบ้าน (Admin Panel)</h2>
+                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PR CAR AUDIO</p>
+                    </div>
+                    <button onclick="logoutAdmin()" class="bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white px-4 py-2 rounded-xl text-sm transition">
+                        ออกจากระบบ
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="card-effect rounded-2xl p-6">
+                        <div class="text-xs text-gray-400">สถานะระบบ</div>
+                        <div class="text-xl font-bold text-green-400 mt-1 flex items-center"><i class="fas fa-check-circle mr-2"></i> พร้อมใช้งาน</div>
+                    </div>
+                    <div class="card-effect rounded-2xl p-6">
+                        <div class="text-xs text-gray-400">การเชื่อมต่อ Google Sheets</div>
+                        <div class="text-xl font-bold text-blue-400 mt-1 flex items-center"><i class="fas fa-link mr-2"></i> เชื่อมต่อแล้ว</div>
+                    </div>
+                    <div class="card-effect rounded-2xl p-6">
+                        <div class="text-xs text-gray-400">ระดับสิทธิ์ปัจจุบัน</div>
+                        <div class="text-xl font-bold text-yellow-500 mt-1 flex items-center"><i class="fas fa-crown mr-2"></i> Super Admin / Owner</div>
+                    </div>
+                </div>
+
+                <div class="card-effect rounded-3xl p-8">
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-table mr-2 text-brand"></i> ทางลัดไปจัดการข้อมูลตารางการจอง</h3>
+                    <p class="text-gray-400 text-sm mb-6">คลิกเพื่อเปิด Google Sheets เพื่อดู ลบ หรือแก้ไขรายการข้อมูลลูกค้าที่ส่งมาจากหน้าเว็บ</p>
+                    <a href="https://docs.google.com/spreadsheets" target="_blank" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-xl transition">
+                        <i class="fas fa-external-link-alt mr-2"></i> เปิด Google Sheets ของคุณ
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- JS Logic -->
     <script>
+        // Admin Auth Credentials (สามารถเปลี่ยน Username & Password ตรงนี้ได้)
+        const ADMIN_USER = "admin";
+        const ADMIN_PASS = "prcar1234";
+
+        function openLoginModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('loginError').classList.add('hidden');
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('adminUsername').value;
+            const p = document.getElementById('adminPassword').value;
+
+            if (u === ADMIN_USER && p === ADMIN_PASS) {
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                closeLoginModal();
+                updateAdminUI();
+                switchPage('admin');
+                alert('🔓 เข้าสู่ระบบสำเร็จ!');
+            } else {
+                document.getElementById('loginError').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            updateAdminUI();
+            switchPage('home');
+            alert('🔒 ออกจากระบบเรียบร้อยแล้ว');
+        }
+
+        function updateAdminUI() {
+            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
+            
+            const navAdmin = document.getElementById('nav-admin');
+            const btnLogin = document.getElementById('login-btn-nav');
+            const btnLogout = document.getElementById('logout-btn-nav');
+
+            if (isLoggedIn) {
+                if (navAdmin) navAdmin.classList.remove('hidden');
+                if (btnLogin) btnLogin.classList.add('hidden');
+                if (btnLogout) btnLogout.classList.remove('hidden');
+            } else {
+                if (navAdmin) navAdmin.classList.add('hidden');
+                if (btnLogin) btnLogin.classList.remove('hidden');
+                if (btnLogout) btnLogout.classList.add('hidden');
+            }
+        }
+
+        function checkAdminPage() {
+            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
+            if (isLoggedIn) {
+                switchPage('admin');
+            } else {
+                openLoginModal();
+            }
+        }
+
         function switchPage(pageName) {
             if (isPlaying) { stopAudio(); }
 
+            // ป้องกันการเข้าหน้า Admin โดยไม่ล็อกอิน
+            if (pageName === 'admin' && sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+                openLoginModal();
+                return;
+            }
+
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.add('hidden'));
-            document.getElementById('page-' + pageName).classList.remove('hidden');
+            
+            const targetPage = document.getElementById('page-' + pageName);
+            if (targetPage) targetPage.classList.remove('hidden');
 
-            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-booking'];
+            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-booking', 'nav-admin'];
             navIds.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) {
-                    el.classList.remove('text-brand');
+                    el.classList.remove('text-brand', 'text-yellow-400');
                     el.classList.add('text-gray-300');
                 }
             });
@@ -504,7 +653,7 @@
             const activeEl = document.getElementById('nav-' + activeNav);
             if(activeEl) {
                 activeEl.classList.remove('text-gray-300');
-                activeEl.classList.add('text-brand');
+                activeEl.classList.add(activeNav === 'admin' ? 'text-yellow-400' : 'text-brand');
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -749,6 +898,11 @@
                 submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
             });
         });
+
+        // ตรวจสอบสถานะการล็อกอินเมื่อโหลดหน้าเว็บครั้งแรก
+        window.onload = function() {
+            updateAdminUI();
+        };
     </script>
 </body>
 </html>
