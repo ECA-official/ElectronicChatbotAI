@@ -89,7 +89,7 @@
                     <i class="fas fa-user-shield"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-white">เข้าสู่ระบบผู้ดูแล</h3>
-                <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน</p>
+                <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน (เซสชัน 45 นาที)</p>
             </div>
             
             <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -523,7 +523,7 @@
                 <div class="flex justify-between items-center mb-8 border-b border-gray-800 pb-6">
                     <div>
                         <h2 class="text-3xl font-bold text-white"><i class="fas fa-user-shield text-yellow-500 mr-2"></i> ระบบจัดการหลังบ้าน (Admin Panel)</h2>
-                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PR CAR AUDIO</p>
+                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PR CAR AUDIO (ระบบจะออกจากระบบอัตโนมัติหากเกิน 45 นาที)</p>
                     </div>
                     <button onclick="logoutAdmin()" class="bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white px-4 py-2 rounded-xl text-sm transition">
                         ออกจากระบบ
@@ -540,8 +540,8 @@
                         <div class="text-xl font-bold text-blue-400 mt-1 flex items-center"><i class="fas fa-link mr-2"></i> เชื่อมต่อแล้ว</div>
                     </div>
                     <div class="card-effect rounded-2xl p-6">
-                        <div class="text-xs text-gray-400">ระดับสิทธิ์ปัจจุบัน</div>
-                        <div class="text-xl font-bold text-yellow-500 mt-1 flex items-center"><i class="fas fa-crown mr-2"></i> Super Admin / Owner</div>
+                        <div class="text-xs text-gray-400">อายุเซสชันการล็อกอิน</div>
+                        <div class="text-xl font-bold text-yellow-500 mt-1 flex items-center"><i class="fas fa-clock mr-2"></i> สูงสุด 45 นาที</div>
                     </div>
                 </div>
 
@@ -558,9 +558,11 @@
 
     <!-- JS Logic -->
     <script>
-        // Admin Auth Credentials
+        // Admin Auth Credentials & Timeout Config (45 นาที)
         const ADMIN_USER = "admin";
         const ADMIN_PASS = "prcar1234";
+        const AUTO_LOGOUT_MS = 45 * 60 * 1000; // 45 นาที = 2,700,000 มิลลิวินาที
+        let logoutTimer = null;
 
         function openLoginModal() {
             document.getElementById('adminModal').classList.remove('hidden');
@@ -578,24 +580,56 @@
 
             if (u === ADMIN_USER && p === ADMIN_PASS) {
                 sessionStorage.setItem('isAdminLoggedIn', 'true');
+                sessionStorage.setItem('adminLoginTime', Date.now().toString()); // บันทึกเวลาที่เข้าสู่ระบบ
                 closeLoginModal();
                 updateAdminUI();
                 switchPage('admin');
-                alert('🔓 เข้าสู่ระบบสำเร็จ!');
+                alert('🔓 เข้าสู่ระบบสำเร็จ! (ระบบจะออกจากระบบอัตโนมัติเมื่อครบ 45 นาที)');
             } else {
                 document.getElementById('loginError').classList.remove('hidden');
             }
         }
 
+        function checkAdminSession() {
+            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
+            if (!isLoggedIn) return false;
+
+            const loginTime = parseInt(sessionStorage.getItem('adminLoginTime') || '0', 10);
+            const now = Date.now();
+            const elapsedTime = now - loginTime;
+
+            // ตรวจสอบว่าเกิน 45 นาทีหรือยัง
+            if (elapsedTime >= AUTO_LOGOUT_MS) {
+                performAutoLogout();
+                return false;
+            } else {
+                // ตั้งเวลาถอยหลังส่วนที่เหลือ
+                if (logoutTimer) clearTimeout(logoutTimer);
+                logoutTimer = setTimeout(performAutoLogout, AUTO_LOGOUT_MS - elapsedTime);
+                return true;
+            }
+        }
+
+        function performAutoLogout() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            sessionStorage.removeItem('adminLoginTime');
+            if (logoutTimer) clearTimeout(logoutTimer);
+            updateAdminUI();
+            switchPage('home');
+            alert('⏱️ หมดเวลาเชื่อมต่อ (เกิน 45 นาที) ระบบทำการออกจากระบบให้อัตโนมัติเพื่อความปลอดภัย');
+        }
+
         function logoutAdmin() {
             sessionStorage.removeItem('isAdminLoggedIn');
+            sessionStorage.removeItem('adminLoginTime');
+            if (logoutTimer) clearTimeout(logoutTimer);
             updateAdminUI();
             switchPage('home');
             alert('🔒 ออกจากระบบเรียบร้อยแล้ว');
         }
 
         function updateAdminUI() {
-            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
+            const isLoggedIn = checkAdminSession();
             
             const navAdmin = document.getElementById('nav-admin');
             const btnLogin = document.getElementById('login-btn-nav');
@@ -613,8 +647,7 @@
         }
 
         function checkAdminPage() {
-            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
-            if (isLoggedIn) {
+            if (checkAdminSession()) {
                 switchPage('admin');
             } else {
                 openLoginModal();
@@ -624,7 +657,7 @@
         function switchPage(pageName) {
             if (isPlaying) { stopAudio(); }
 
-            if (pageName === 'admin' && sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+            if (pageName === 'admin' && !checkAdminSession()) {
                 openLoginModal();
                 return;
             }
