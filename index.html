@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR CAR AUDIO | Science Day 2026</title>
+    <title>PR CAR AUDIO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,8 @@
     <style>
         body { font-family: 'Prompt', sans-serif; background-color: #0a0a0a; color: #e5e7eb; }
         .hero-bg {
-            background-image: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('https://images.unsplash.com/photo-1600844781471-70014073bd33?q=80&w=2070&auto=format&fit=crop');
+            /* เปลี่ยน Background อ้างอิงโฟลเดอร์ Projech/bgweb.jpg */
+            background-image: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('Projech/bgweb.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         .glass-effect {
@@ -33,7 +34,6 @@
         .card-effect:hover {
             transform: translateY(-5px); border-color: #E63946;
         }
-        /* เอฟเฟกต์ Fade in ตอนเปลี่ยนหน้า */
         .fade-in {
             animation: fadeIn 0.4s ease-in-out;
         }
@@ -71,9 +71,6 @@
         <section class="hero-bg min-h-screen flex items-center pt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="max-w-3xl">
-                    <div class="inline-block px-4 py-1 rounded-full border border-brand text-brand mb-6 text-sm font-medium tracking-widest uppercase">
-                        Science Day Exhibition
-                    </div>
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
                         ปลดล็อกมิติเสียง<br>
                         <span class="text-brand">ระดับโลก</span> ให้รถคุณ
@@ -91,7 +88,7 @@
         </section>
     </div>
 
-    <!-- 2. หน้า Product -->
+    <!-- 2. หน้า Product หมวดหมู่หลัก -->
     <div id="page-product" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,15 +98,17 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Head Units -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
+                    <!-- Head Units (อัปเดตให้กดเพื่อไปหน้าแบรนด์ได้) -->
+                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-headunit')">
                         <i class="fas fa-radio text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">1. เครื่องเล่นและหน้าจอ</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                            1. เครื่องเล่นและหน้าจอ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
+                        </h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Head Units / Media Receivers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ควบคุมระบบทั้งหมด เล่นเพลง ปรับแต่งเสียง และเชื่อมต่อสมาร์ทโฟน</p>
+                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นเครื่องเล่น ควบคุมระบบทั้งหมด เล่นเพลง ปรับแต่งเสียง</p>
                         <div class="pt-4 border-t border-gray-800">
                             <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Pioneer, Kenwood, Alpine, Sony, JVC, Nakamichi</p>
+                            <p class="text-gray-400 text-sm mt-2">Alpine, JVC, Kenwood, Nakamichi, Pioneer, Sony</p>
                         </div>
                     </div>
 
@@ -119,10 +118,6 @@
                         <h3 class="text-xl font-bold text-white mb-3">2. ลำโพง</h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Speakers)</h4>
                         <p class="text-gray-400 text-sm mb-6">ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น (Component) และแกนร่วม (Coaxial)</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Focal, Morel, Hertz, JBL, Infinity, Kenwood, Boston Acoustics</p>
-                        </div>
                     </div>
 
                     <!-- Power Amplifiers -->
@@ -130,11 +125,7 @@
                         <i class="fas fa-bolt text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">3. เพาเวอร์แอมป์</h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Power Amplifiers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น รองรับระบบขับซับหรือขับลำโพงกลางแหลม</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Audison, Mosconi, Ground Zero, JL Audio, Rockford Fosgate, PRS, Class D / AB แบรนด์ไทยหรือนอกอย่าง Platinum-X และ Worldtech</p>
-                        </div>
+                        <p class="text-gray-400 text-sm mb-6">ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น</p>
                     </div>
 
                     <!-- Subwoofers -->
@@ -142,22 +133,148 @@
                         <i class="fas fa-compact-disc text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">4. ซับวูฟเฟอร์</h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Subwoofers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง มีทั้งแบบตู้ซับและซับบ็อกซ์ใต้เบาะ (Powered Subwoofer)</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Kicker, JL Audio, Rockford Fosgate, JBL, Focal, Pioneer</p>
-                        </div>
+                        <p class="text-gray-400 text-sm mb-6">ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง</p>
                     </div>
 
                     <!-- DSP -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden md:col-span-2 lg:col-span-1">
                         <i class="fas fa-sliders-h text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">5. หน่วยประมวลผลเสียง</h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(Digital Sound Processors - DSP)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ปรับจูนคลื่นความถี่แยกอิสระแต่ละลำโพง ตั้งค่ามิติเวทีเสียง (Time Alignment)</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Helix, Brax, Audison, Zapco, Alpine</p>
+                        <h4 class="text-brand text-sm font-semibold mb-3">(DSP)</h4>
+                        <p class="text-gray-400 text-sm mb-6">ปรับจูนคลื่นความถี่แยกอิสระแต่ละลำโพง ตั้งค่ามิติเวทีเสียง</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.1 หน้า Brands ของเครื่องเล่น (เรียงตามตัวอักษร) -->
+    <div id="page-brands-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
+                </button>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์เครื่องเล่นและหน้าจอ</h2>
+                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรุ่นสินค้า</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Alpine -->
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
+                        <span class="text-2xl font-bold text-gray-300">ALPINE</span>
+                        <!-- พื้นที่สำหรับใส่รูปภาพโลโก้ในอนาคต -->
+                        <!-- <img src="logo/alpine.png" class="w-full h-full object-contain"> -->
+                    </div>
+                    
+                    <!-- JVC -->
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
+                        <span class="text-2xl font-bold text-gray-300">JVC</span>
+                    </div>
+
+                    <!-- Kenwood -->
+                    <div onclick="switchPage('kenwood-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-2xl font-bold text-white">KENWOOD</span>
+                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
+                    </div>
+
+                    <!-- Nakamichi -->
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
+                        <span class="text-2xl font-bold text-gray-300">NAKAMICHI</span>
+                    </div>
+
+                    <!-- Pioneer -->
+                    <div onclick="switchPage('pioneer-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-2xl font-bold text-white">PIONEER</span>
+                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
+                    </div>
+
+                    <!-- Sony -->
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
+                        <span class="text-2xl font-bold text-gray-300">SONY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.2 หน้ารายการสินค้า Kenwood -->
+    <div id="page-kenwood-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
+                </button>
+                <div class="mb-12 border-b border-gray-800 pb-6">
+                    <h2 class="text-4xl font-bold text-white">KENWOOD</h2>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- Product 1 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Kenwood/font/dmx9724xs.png" alt="DMX9724XS" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">DMX9724XS</h3>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Kenwood/font/dmx8521s.png" alt="DMX8521S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">DMX8521S</h3>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Kenwood/font/dmx7522s.png" alt="DMX7522S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">DMX7522S</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.3 หน้ารายการสินค้า Pioneer -->
+    <div id="page-pioneer-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
+                </button>
+                <div class="mb-12 border-b border-gray-800 pb-6">
+                    <h2 class="text-4xl font-bold text-white">PIONEER</h2>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- Product 1 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Pioneer/font/zf9350bt.png" alt="ZF9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">ZF9350BT</h3>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Pioneer/font/zs9350bt.png" alt="ZS9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">ZS9350BT</h3>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Pioneer/font/zf9650bt.jpg" alt="ZF9650BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">ZF9650BT</h3>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Pioneer/font/zf8750bt.jpg" alt="ZF8750BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">ZF8750BT</h3>
                         </div>
                     </div>
                 </div>
@@ -171,35 +288,57 @@
             <div class="absolute top-0 right-0 w-96 h-96 bg-brand opacity-10 rounded-full blur-3xl -mr-20"></div>
             <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600 opacity-10 rounded-full blur-3xl -ml-20"></div>
 
-            <div class="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="card-effect rounded-3xl p-8 md:p-12 shadow-2xl">
                     <div class="text-center mb-10">
                         <h2 class="text-3xl font-bold text-white mb-2">ระบบจองคิวติดตั้ง</h2>
-                        <p class="text-gray-400">กรุณากรอกข้อมูลของคุณและรถยนต์ เพื่อให้ทีมช่างของเราติดต่อกลับ</p>
+                        <p class="text-gray-400">กรุณากรอกข้อมูลของคุณและรถยนต์ เพื่อให้ทีมช่างของเราติดต่อกลับประเมินราคา</p>
                     </div>
 
-                    <form id="bookingForm" onsubmit="submitForm(event)" class="space-y-6">
+                    <form id="bookingForm" name="registerForm" class="space-y-6">
+                        <!-- แถว 1: ชื่อ และ ชื่อเล่น -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">ชื่อ-นามสกุล</label>
-                                <input type="text" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
+                                <label for="fullname" class="block text-sm font-medium text-gray-400 mb-2">ชื่อ - นามสกุล <span class="text-brand">*</span></label>
+                                <input type="text" id="fullname" name="fullname" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">เบอร์โทรศัพท์</label>
-                                <input type="tel" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
+                                <label for="nickname" class="block text-sm font-medium text-gray-400 mb-2">ชื่อเล่น <span class="text-brand">*</span></label>
+                                <input type="text" id="nickname" name="nickname" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
                             </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-400 mb-2">ยี่ห้อ / รุ่นรถยนต์</label>
-                                <input type="text" placeholder="เช่น Honda Civic FE, Toyota Fortuner" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
+                        </div>
+
+                        <!-- แถว 2: รุ่นรถ และ ปีรถ -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="carModel" class="block text-sm font-medium text-gray-400 mb-2">ยี่ห้อ / รุ่นรถยนต์ <span class="text-brand">*</span></label>
+                                <input type="text" id="carModel" name="carModel" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
+                            </div>
+                            <div>
+                                <label for="carYear" class="block text-sm font-medium text-gray-400 mb-2">ปีรถยนต์ <span class="text-brand">*</span></label>
+                                <input type="text" id="carYear" name="carYear" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
                             </div>
                         </div>
                         
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">เลือกวันที่ต้องการนำรถเข้าประเมิน/ติดตั้ง</label>
-                            <input type="date" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition [color-scheme:dark]">
+                        <!-- แถว 3: เบอร์โทร และ วันที่นัดหมาย -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">เบอร์โทรศัพท์ติดต่อ <span class="text-brand">*</span></label>
+                                <input type="tel" id="phone" name="phone" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
+                            </div>
+                            <div>
+                                <label for="appointDate" class="block text-sm font-medium text-gray-400 mb-2">วันที่สะดวก <span class="text-brand">*</span></label>
+                                <input type="date" id="appointDate" name="appointDate" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition [color-scheme:dark]">
+                            </div>
                         </div>
 
-                        <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-bold text-lg py-4 rounded-xl transition mt-8 shadow-lg shadow-red-900/30">
+                        <!-- แถว 4: รายละเอียดเพิ่มเติม -->
+                        <div>
+                            <label for="note" class="block text-sm font-medium text-gray-400 mb-2">รายละเอียดเพิ่มเติม</label>
+                            <textarea id="note" name="note" rows="3" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full bg-brand hover:bg-red-700 text-white font-bold text-lg py-4 rounded-xl transition mt-8 shadow-lg shadow-red-900/30 flex items-center justify-center">
                             <i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว
                         </button>
                     </form>
@@ -211,36 +350,69 @@
     <!-- JavaScript ควบคุมการเปลี่ยนหน้า -->
     <script>
         function switchPage(pageName) {
-            // 1. ซ่อนทุกหน้า
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.add('hidden'));
-
-            // 2. แสดงหน้าเป้าหมาย
             document.getElementById('page-' + pageName).classList.remove('hidden');
 
-            // 3. จัดการสีของ Navbar เมนู
             const navIds = ['nav-home', 'nav-product', 'nav-booking'];
             navIds.forEach(id => {
                 const el = document.getElementById(id);
-                el.classList.remove('text-brand');
-                el.classList.add('text-gray-300');
+                if(el) {
+                    el.classList.remove('text-brand');
+                    el.classList.add('text-gray-300');
+                }
             });
 
-            // ไฮไลท์เมนูที่ถูกเลือก
-            document.getElementById('nav-' + pageName).classList.remove('text-gray-300');
-            document.getElementById('nav-' + pageName).classList.add('text-brand');
+            // ตรวจสอบว่าถ้าเข้าหน้าแบรนด์ หรือสินค้าย่อย ให้ปุ่ม "Product" ที่เมนูสว่างเหมือนเดิม
+            let activeNav = pageName;
+            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit'].includes(pageName)) {
+                activeNav = 'product';
+            }
 
-            // เลื่อนจอขึ้นไปบนสุดเสมอเวลาเปลี่ยนหน้า
+            const activeEl = document.getElementById('nav-' + activeNav);
+            if(activeEl) {
+                activeEl.classList.remove('text-gray-300');
+                activeEl.classList.add('text-brand');
+            }
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // แจ้งเตือนเมื่อกดจอง
-        function submitForm(event) {
-            event.preventDefault();
-            alert('🎉 ขอบคุณครับ! ระบบได้รับข้อมูลการจองคิวของ PR CAR AUDIO เรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด');
-            document.getElementById('bookingForm').reset();
-        }
+        // ระบบบันทึกข้อมูล (คงไว้เหมือนเดิม)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzPBkfw1Oy34NLqZp8uLpFXdxoch1HZYv03Ngks6xwOtAKCA64qeanujFanO_yD2JbMOA/exec';
+        const form = document.getElementById('bookingForm');
+        const submitBtn = document.getElementById('submitBtn');
+        let isSubmitting = false;
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if (isSubmitting) return; 
+            
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> กำลังบันทึกข้อมูล...';
+            submitBtn.classList.remove('bg-brand', 'hover:bg-red-700');
+            submitBtn.classList.add('bg-gray-600', 'cursor-not-allowed');
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                alert('🎉 ขอบคุณครับ! ระบบได้รับข้อมูลการจองคิวเรียบร้อยแล้ว');
+                form.reset();
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
+                submitBtn.classList.remove('bg-gray-600', 'cursor-not-allowed');
+                submitBtn.classList.add('bg-brand', 'hover:bg-red-700');
+            })
+            .catch(error => {
+                alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง');
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
+                submitBtn.classList.remove('bg-gray-600', 'cursor-not-allowed');
+                submitBtn.classList.add('bg-brand', 'hover:bg-red-700');
+            });
+        });
     </script>
 </body>
 </html>
- 
