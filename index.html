@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR CAR AUDIO</title>
+    <title>PR CAR AUDIO - Science & Sound Tech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,8 +21,7 @@
     <style>
         body { font-family: 'Prompt', sans-serif; background-color: #0a0a0a; color: #e5e7eb; }
         .hero-bg {
-            /* เปลี่ยน Background อ้างอิงโฟลเดอร์ Projech/bgweb.jpg */
-            background-image: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('Projech/bgweb.jpg');
+            background-image: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('bgweb.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         .glass-effect {
@@ -50,15 +49,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
-                    <span class="text-3xl font-bold text-white tracking-wider">PR CAR<span class="text-brand">AUDIO</span></span>
+                    <span class="text-2xl md:text-3xl font-bold text-white tracking-wider">PR CAR<span class="text-brand">AUDIO</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
                     <button id="nav-home" onclick="switchPage('home')" class="text-brand font-medium hover:text-brand transition">หน้าหลัก</button>
                     <button id="nav-product" onclick="switchPage('product')" class="text-gray-300 font-medium hover:text-brand transition">Product</button>
+                    <button id="nav-frequency" onclick="switchPage('frequency')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-wave-square text-xs mr-1"></i>ทดสอบคลื่นเสียง & Visualizer</button>
+                    <button id="nav-calculator" onclick="switchPage('calculator')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-calculator text-xs mr-1"></i>คำนวณสเปก</button>
                     <button id="nav-booking" onclick="switchPage('booking')" class="text-gray-300 font-medium hover:text-brand transition">จองคิวติดตั้ง</button>
                 </div>
                 <div class="hidden md:flex">
-                    <button onclick="switchPage('booking')" class="bg-brand hover:bg-red-700 text-white px-6 py-2 rounded-full font-medium transition shadow-lg shadow-red-900/50">
+                    <button onclick="switchPage('booking')" class="bg-brand hover:bg-red-700 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-red-900/50">
                         จองคิวทันที
                     </button>
                 </div>
@@ -71,16 +72,20 @@
         <section class="hero-bg min-h-screen flex items-center pt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="max-w-3xl">
+                    <span class="inline-block bg-brand/20 text-brand border border-brand/40 px-4 py-1 rounded-full text-sm font-semibold mb-4">Science & Audio Physics Exhibition</span>
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
                         ปลดล็อกมิติเสียง<br>
                         <span class="text-brand">ระดับโลก</span> ให้รถคุณ
                     </h1>
                     <p class="text-xl text-gray-400 mb-10 max-w-2xl font-light">
-                        สัมผัสความสุนทรีย์ของเครื่องเสียงติดรถยนต์ระดับพรีเมียม ศูนย์รวมแบรนด์ดังระดับโลก Pioneer, Kenwood, JBL, Alpine, Focal, Rockford Fosgate, และ Kicker
+                        สัมผัสความสุนทรีย์ของเครื่องเสียงติดรถยนต์ ร่วมทดสอบคลื่นเสียง Real-time Visualizer และระบบประมวลผล Cloud
                     </p>
-                    <div class="flex space-x-4">
-                        <button onclick="switchPage('product')" class="bg-transparent border border-white text-white hover:bg-white hover:text-dark px-8 py-3 rounded-full font-medium transition">
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="switchPage('product')" class="bg-brand hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition">
                             ดู Product ทั้งหมด
+                        </button>
+                        <button onclick="switchPage('frequency')" class="bg-transparent border border-white text-white hover:bg-white hover:text-dark px-8 py-3 rounded-full font-medium transition">
+                            ทดลองคลื่นเสียง (Sound Check)
                         </button>
                     </div>
                 </div>
@@ -88,17 +93,16 @@
         </section>
     </div>
 
-    <!-- 2. หน้า Product หมวดหมู่หลัก -->
+    <!-- 2. หน้า Product -->
     <div id="page-product" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">OUR <span class="text-brand">PRODUCTS</span></h2>
-                    <p class="text-gray-400 max-w-3xl mx-auto">รายชื่ออุปกรณ์เครื่องเสียงรถยนต์ (Car Audio) แยกตามหมวดหมู่ชิ้นส่วนและแบรนด์ดังระดับโลกที่ได้รับความนิยมสูงสุด</p>
+                    <p class="text-gray-400 max-w-3xl mx-auto">รายชื่ออุปกรณ์เครื่องเสียงรถยนต์ แยกตามหมวดหมู่ชิ้นส่วนและแบรนด์ดังระดับโลก</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Head Units (อัปเดตให้กดเพื่อไปหน้าแบรนด์ได้) -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-headunit')">
                         <i class="fas fa-radio text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
@@ -112,15 +116,13 @@
                         </div>
                     </div>
 
-                    <!-- Speakers -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
                         <i class="fas fa-volume-up text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">2. ลำโพง</h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Speakers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น (Component) และแกนร่วม (Coaxial)</p>
+                        <p class="text-gray-400 text-sm mb-6">ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น และแกนร่วม</p>
                     </div>
 
-                    <!-- Power Amplifiers -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
                         <i class="fas fa-bolt text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">3. เพาเวอร์แอมป์</h3>
@@ -128,7 +130,6 @@
                         <p class="text-gray-400 text-sm mb-6">ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น</p>
                     </div>
 
-                    <!-- Subwoofers -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
                         <i class="fas fa-compact-disc text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">4. ซับวูฟเฟอร์</h3>
@@ -136,7 +137,6 @@
                         <p class="text-gray-400 text-sm mb-6">ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง</p>
                     </div>
 
-                    <!-- DSP -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden md:col-span-2 lg:col-span-1">
                         <i class="fas fa-sliders-h text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3">5. หน่วยประมวลผลเสียง</h3>
@@ -148,7 +148,7 @@
         </section>
     </div>
 
-    <!-- 2.1 หน้า Brands ของเครื่องเล่น (เรียงตามตัวอักษร) -->
+    <!-- 2.1 หน้า Brands -->
     <div id="page-brands-headunit" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,36 +161,23 @@
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <!-- Alpine -->
                     <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
                         <span class="text-2xl font-bold text-gray-300">ALPINE</span>
-                        <!-- พื้นที่สำหรับใส่รูปภาพโลโก้ในอนาคต -->
-                        <!-- <img src="logo/alpine.png" class="w-full h-full object-contain"> -->
                     </div>
-                    
-                    <!-- JVC -->
                     <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
                         <span class="text-2xl font-bold text-gray-300">JVC</span>
                     </div>
-
-                    <!-- Kenwood -->
                     <div onclick="switchPage('kenwood-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
                         <span class="text-2xl font-bold text-white">KENWOOD</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
-
-                    <!-- Nakamichi -->
                     <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
                         <span class="text-2xl font-bold text-gray-300">NAKAMICHI</span>
                     </div>
-
-                    <!-- Pioneer -->
                     <div onclick="switchPage('pioneer-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
                         <span class="text-2xl font-bold text-white">PIONEER</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
-
-                    <!-- Sony -->
                     <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
                         <span class="text-2xl font-bold text-gray-300">SONY</span>
                     </div>
@@ -199,7 +186,7 @@
         </section>
     </div>
 
-    <!-- 2.2 หน้ารายการสินค้า Kenwood -->
+    <!-- 2.2 หน้า Kenwood -->
     <div id="page-kenwood-headunit" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -211,33 +198,24 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- Product 1 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Kenwood/font/dmx9724xs.png" alt="DMX9724XS" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX9724XS</h3>
-                        </div>
+                        <img src="Projech/Kenwood/font/dmx9724xs.png" alt="DMX9724XS" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">DMX9724XS</h3></div>
                     </div>
-                    <!-- Product 2 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Kenwood/font/dmx8521s.png" alt="DMX8521S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX8521S</h3>
-                        </div>
+                        <img src="Projech/Kenwood/font/dmx8521s.png" alt="DMX8521S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">DMX8521S</h3></div>
                     </div>
-                    <!-- Product 3 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Kenwood/font/dmx7522s.png" alt="DMX7522S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX7522S</h3>
-                        </div>
+                        <img src="Projech/Kenwood/font/dmx7522s.png" alt="DMX7522S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">DMX7522S</h3></div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- 2.3 หน้ารายการสินค้า Pioneer -->
+    <!-- 2.3 หน้า Pioneer -->
     <div id="page-pioneer-headunit" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,32 +227,193 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- Product 1 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Pioneer/font/zf9350bt.png" alt="ZF9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">ZF9350BT</h3>
+                        <img src="Projech/Pioneer/Font/zf9350bt.png" alt="ZF9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">ZF9350BT</h3></div>
+                    </div>
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Projech/Pioneer/Font/zs9350bt.png" alt="ZS9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">ZS9350BT</h3></div>
+                    </div>
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Projech/Pioneer/Font/zf9650bt.jpg" alt="ZF9650BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">ZF9650BT</h3></div>
+                    </div>
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="Projech/Pioneer/Font/zf8750bt.jpg" alt="ZF8750BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div><h3 class="text-2xl font-bold text-white">ZF8750BT</h3></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 3. หน้าทดสอบคลื่นเสียง + Real-time Oscilloscope Visualizer + Decibel Meter -->
+    <div id="page-frequency" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-brand text-sm font-semibold tracking-wider uppercase">Audio Lab & Pre-Booking Sound Check</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-1">ห้องทดลองคลื่นเสียง & Visualizer</h2>
+                    <p class="text-gray-400 mt-3">ทดลองฟิสิกส์คลื่นเสียง ดูรูปคลื่น Sine Wave แบบ Real-time และประเมินความปลอดภัยของหูก่อนสั่งติดตั้ง</p>
+                </div>
+
+                <div class="card-effect rounded-3xl p-6 md:p-8 border-brand/30 shadow-2xl mb-12">
+                    <!-- Canvas Visualizer -->
+                    <div class="bg-black/80 rounded-2xl p-4 border border-gray-800 mb-6 relative overflow-hidden">
+                        <div class="text-xs text-gray-400 mb-2 flex justify-between items-center">
+                            <span><i class="fas fa-chart-line text-brand mr-1"></i> Real-time Oscilloscope (รูปคลื่นเสียง)</span>
+                            <span id="wave-status" class="text-gray-500">สถานะ: ปิดเสียง</span>
+                        </div>
+                        <canvas id="oscilloscope" class="w-full h-36 rounded-lg bg-gray-950 border border-gray-800/80"></canvas>
+                    </div>
+
+                    <!-- Frequency Display -->
+                    <div class="bg-gray-900 rounded-2xl p-6 text-center mb-8 border border-gray-800">
+                        <div class="text-gray-400 text-sm mb-1">ความถี่คลื่นเสียงปัจจุบัน (Frequency)</div>
+                        <div class="text-6xl font-extrabold text-brand tracking-tight my-2">
+                            <span id="freq-display">440</span> <span class="text-2xl font-normal text-gray-400">Hz</span>
+                        </div>
+                        <div id="freq-type" class="text-lg font-medium text-yellow-400 mt-2">ย่านเสียงกลาง (Mid-range / Voice)</div>
+                    </div>
+
+                    <!-- Slider -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between text-xs text-gray-400">
+                            <span>20 Hz (Bass ต่ำสุด)</span>
+                            <span>1,000 Hz (Mid)</span>
+                            <span>20,000 Hz (Treble สูงสุด)</span>
+                        </div>
+                        <input type="range" id="freq-slider" min="20" max="20000" value="440" step="1" 
+                               class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-brand"
+                               oninput="updateFrequency(this.value)">
+                    </div>
+
+                    <!-- Presets -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-400 mb-3">เลือกย่านความถี่ทดสอบ:</label>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                            <button onclick="setPreset(40, 'Sub-Bass')" class="bg-gray-800 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">40 Hz<br><span class="text-[10px] text-gray-400">Sub-Bass</span></button>
+                            <button onclick="setPreset(120, 'Bass')" class="bg-gray-800 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">120 Hz<br><span class="text-[10px] text-gray-400">Bass</span></button>
+                            <button onclick="setPreset(1000, 'Mid-range')" class="bg-gray-800 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">1,000 Hz<br><span class="text-[10px] text-gray-400">Mid Voice</span></button>
+                            <button onclick="setPreset(8000, 'Treble')" class="bg-gray-800 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">8,000 Hz<br><span class="text-[10px] text-gray-400">Treble</span></button>
+                            <button onclick="setPreset(15000, 'High')" class="bg-gray-800 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">15,000 Hz<br><span class="text-[10px] text-gray-400">High Air</span></button>
                         </div>
                     </div>
-                    <!-- Product 2 -->
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Pioneer/font/zs9350bt.png" alt="ZS9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">ZS9350BT</h3>
+
+                    <!-- Audio Controls -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-gray-800">
+                        <button id="audio-toggle-btn" onclick="toggleAudio()" class="w-full sm:w-auto bg-brand hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl transition flex items-center justify-center text-lg shadow-lg">
+                            <i class="fas fa-play mr-2" id="play-icon"></i> <span id="play-btn-text">เริ่มปล่อยคลื่นเสียง</span>
+                        </button>
+                        
+                        <div class="flex items-center space-x-3 w-full sm:w-1/2">
+                            <i class="fas fa-volume-down text-gray-400"></i>
+                            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3" 
+                                   class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-brand"
+                                   oninput="updateVolume(this.value)">
+                            <i class="fas fa-volume-up text-gray-400"></i>
                         </div>
                     </div>
-                    <!-- Product 3 -->
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Pioneer/font/zf9650bt.jpg" alt="ZF9650BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">ZF9650BT</h3>
+                </div>
+
+                <!-- NEW: Decibel & Hearing Safety Meter -->
+                <div class="card-effect rounded-3xl p-6 md:p-8 border-blue-500/30">
+                    <h3 class="text-2xl font-bold text-white mb-2 flex items-center"><i class="fas fa-shield-alt text-blue-500 mr-3"></i> เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety)</h3>
+                    <p class="text-gray-400 text-sm mb-6">จำลองระดับความเดซิเบล (dB) เพื่อศึกษาการฟังเสียงเครื่องเสียงรถยนต์อย่างปลอดภัยตามมาตรฐาน OSHA</p>
+
+                    <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 text-center mb-6">
+                        <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
+                        <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
+                        <div id="db-status" class="text-sm font-semibold text-green-400">ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป</div>
+                    </div>
+
+                    <input type="range" id="db-slider" min="40" max="130" value="85" step="1" 
+                           class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-500 mb-6"
+                           oninput="updateDbMeter(this.value)">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-300 bg-black/40 p-4 rounded-xl border border-gray-800">
+                        <div><strong class="text-white"><i class="fas fa-info-circle text-blue-400 mr-1"></i> สภาพแวดล้อมเปรียบเทียบ:</strong> <span id="db-env">เสียงในห้องทำงาน / เสียงพูดคุยปกติ</span></div>
+                        <div><strong class="text-white"><i class="fas fa-clock text-yellow-400 mr-1"></i> เวลาฟังปลอดภัยสูงสุดต่อวัน:</strong> <span id="db-time">8 ชั่วโมงต่อเนื่อง</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. หน้าคำนวณสเปก (Audio Calculator) -->
+    <div id="page-calculator" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen bg-[#0a0a0a]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand text-sm font-semibold tracking-wider uppercase">Engineering & Acoustics Tools</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-1">โปรแกรมคำนวณสเปกเครื่องเสียง</h2>
+                    <p class="text-gray-400 mt-2">คำนวณกำลังขับที่เหมาะสมและปริมาตรตู้ซับวูฟเฟอร์ตามหลักวิศวกรรม</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-effect rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-brand/20 text-brand rounded-2xl flex items-center justify-center mr-4 text-2xl font-bold">1</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">คำนวณกำลังขับแอมป์ (RMS)</h3>
+                                <p class="text-xs text-gray-400">หาขนาดกำลังขับเพาเวอร์แอมป์ที่เหมาะกับลำโพง</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">กำลัง RMS ของลำโพง (Watts RMS)</label>
+                                <input type="number" id="calc-speaker-rms" value="100" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">จำนวนลำโพงที่ต้องการต่อ (ดอก)</label>
+                                <input type="number" id="calc-speaker-count" value="2" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                            </div>
+                            <button onclick="calculateAmpRMS()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3 rounded-xl transition mt-2">คำนวณกำลังขับแอมป์</button>
+
+                            <div id="result-amp" class="hidden bg-gray-900 p-4 rounded-xl border border-gray-800 mt-4">
+                                <span class="text-xs text-gray-400">แนะนำกำลังขับเพาเวอร์แอมป์ที่เหมาะสม:</span>
+                                <div class="text-2xl font-bold text-brand mt-1"><span id="res-amp-val">0</span> Watts RMS</div>
+                                <p class="text-[11px] text-gray-400 mt-1">*คิดคำนวณที่ Headroom +25% เพื่อป้องกันสัญญาณคลิป</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- Product 4 -->
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="Pioneer/font/zf8750bt.jpg" alt="ZF8750BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">ZF8750BT</h3>
+
+                    <div class="card-effect rounded-3xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center mr-4 text-2xl font-bold">2</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">คำนวณปริมาตรตู้ซับวูฟเฟอร์</h3>
+                                <p class="text-xs text-gray-400">หาปริมาตรตู้ปิด/ตู้ลม (Box Enclosure)</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">ขนาดดอกซับวูฟเฟอร์ (นิ้ว)</label>
+                                <select id="calc-sub-size" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                                    <option value="8">8 นิ้ว</option>
+                                    <option value="10" selected>10 นิ้ว</option>
+                                    <option value="12">12 นิ้ว</option>
+                                    <option value="15">15 นิ้ว</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">ประเภทตู้ซับ</label>
+                                <select id="calc-box-type" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                                    <option value="sealed">ตู้ปิด (Sealed Box - เบสแน่นนุ่มกระชับ)</option>
+                                    <option value="ported">ตู้ลิ้น/ตู้พอร์ต (Ported Box - เบสแรงดังไกล)</option>
+                                </select>
+                            </div>
+                            <button onclick="calculateSubBox()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition mt-2">คำนวณขนาดปริมาตรตู้</button>
+
+                            <div id="result-box" class="hidden bg-gray-900 p-4 rounded-xl border border-gray-800 mt-4">
+                                <span class="text-xs text-gray-400">ปริมาตรตู้ที่แนะนำ:</span>
+                                <div class="text-2xl font-bold text-blue-400 mt-1"><span id="res-box-cuft">0</span> <span class="text-sm">cu.ft (ลูกบาศก์ฟุต)</span></div>
+                                <div class="text-sm text-gray-300">ประมาณ <span id="res-box-liter" class="font-bold text-white">0</span> ลิตร</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -282,21 +421,18 @@
         </section>
     </div>
 
-    <!-- 3. หน้า Booking -->
+    <!-- 5. หน้า Booking -->
     <div id="page-booking" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen relative overflow-hidden flex items-center justify-center bg-[#111]">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-brand opacity-10 rounded-full blur-3xl -mr-20"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600 opacity-10 rounded-full blur-3xl -ml-20"></div>
-
             <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="card-effect rounded-3xl p-8 md:p-12 shadow-2xl">
                     <div class="text-center mb-10">
-                        <h2 class="text-3xl font-bold text-white mb-2">ระบบจองคิวติดตั้ง</h2>
-                        <p class="text-gray-400">กรุณากรอกข้อมูลของคุณและรถยนต์ เพื่อให้ทีมช่างของเราติดต่อกลับประเมินราคา</p>
+                        <span class="inline-block bg-green-500/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-semibold mb-2"><i class="fas fa-cloud mr-1"></i> Live Cloud Integration Demo</span>
+                        <h2 class="text-3xl font-bold text-white mb-2">ระบบจองคิวติดตั้ง (Real-time Cloud)</h2>
+                        <p class="text-gray-400">กรอกข้อมูลระบบจองคิว ข้อมูลจะถูกส่งตรงไปประมวลผลบน Google Sheets ทันที</p>
                     </div>
 
                     <form id="bookingForm" name="registerForm" class="space-y-6">
-                        <!-- แถว 1: ชื่อ และ ชื่อเล่น -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="fullname" class="block text-sm font-medium text-gray-400 mb-2">ชื่อ - นามสกุล <span class="text-brand">*</span></label>
@@ -308,7 +444,6 @@
                             </div>
                         </div>
 
-                        <!-- แถว 2: รุ่นรถ และ ปีรถ -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="carModel" class="block text-sm font-medium text-gray-400 mb-2">ยี่ห้อ / รุ่นรถยนต์ <span class="text-brand">*</span></label>
@@ -320,7 +455,6 @@
                             </div>
                         </div>
                         
-                        <!-- แถว 3: เบอร์โทร และ วันที่นัดหมาย -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">เบอร์โทรศัพท์ติดต่อ <span class="text-brand">*</span></label>
@@ -332,7 +466,6 @@
                             </div>
                         </div>
 
-                        <!-- แถว 4: รายละเอียดเพิ่มเติม -->
                         <div>
                             <label for="note" class="block text-sm font-medium text-gray-400 mb-2">รายละเอียดเพิ่มเติม</label>
                             <textarea id="note" name="note" rows="3" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition"></textarea>
@@ -347,14 +480,16 @@
         </section>
     </div>
 
-    <!-- JavaScript ควบคุมการเปลี่ยนหน้า -->
+    <!-- JS Logic -->
     <script>
         function switchPage(pageName) {
+            if (isPlaying) { stopAudio(); }
+
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.classList.add('hidden'));
             document.getElementById('page-' + pageName).classList.remove('hidden');
 
-            const navIds = ['nav-home', 'nav-product', 'nav-booking'];
+            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-booking'];
             navIds.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) {
@@ -363,7 +498,6 @@
                 }
             });
 
-            // ตรวจสอบว่าถ้าเข้าหน้าแบรนด์ หรือสินค้าย่อย ให้ปุ่ม "Product" ที่เมนูสว่างเหมือนเดิม
             let activeNav = pageName;
             if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit'].includes(pageName)) {
                 activeNav = 'product';
@@ -378,7 +512,218 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ระบบบันทึกข้อมูล (คงไว้เหมือนเดิม)
+        // Web Audio Context & Oscilloscope Visualizer
+        let audioCtx = null;
+        let oscillator = null;
+        let gainNode = null;
+        let analyser = null;
+        let isPlaying = false;
+        let animFrameId = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function toggleAudio() {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (isPlaying) {
+                stopAudio();
+            } else {
+                startAudio();
+            }
+        }
+
+        function startAudio() {
+            oscillator = audioCtx.createOscillator();
+            gainNode = audioCtx.createGain();
+            analyser = audioCtx.createAnalyser();
+
+            const freq = document.getElementById('freq-slider').value;
+            const volume = document.getElementById('volume-slider').value;
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gainNode.gain.setValueAtTime(volume, audioCtx.currentTime);
+
+            analyser.fftSize = 2048;
+
+            oscillator.connect(gainNode);
+            gainNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+
+            oscillator.start();
+            isPlaying = true;
+
+            document.getElementById('play-icon').className = 'fas fa-stop mr-2';
+            document.getElementById('play-btn-text').innerText = 'หยุดปล่อยคลื่นเสียง';
+            document.getElementById('audio-toggle-btn').classList.replace('bg-brand', 'bg-gray-700');
+            document.getElementById('wave-status').innerText = 'สถานะ: ปล่อยสัญญาณเสียง...';
+            document.getElementById('wave-status').className = 'text-green-400';
+
+            drawVisualizer();
+        }
+
+        function stopAudio() {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator.disconnect();
+            }
+            if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+            }
+            isPlaying = false;
+
+            document.getElementById('play-icon').className = 'fas fa-play mr-2';
+            document.getElementById('play-btn-text').innerText = 'เริ่มปล่อยคลื่นเสียง';
+            document.getElementById('audio-toggle-btn').classList.replace('bg-gray-700', 'bg-brand');
+            document.getElementById('wave-status').innerText = 'สถานะ: ปิดเสียง';
+            document.getElementById('wave-status').className = 'text-gray-500';
+
+            // Clear canvas
+            const canvas = document.getElementById('oscilloscope');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawVisualizer() {
+            const canvas = document.getElementById('oscilloscope');
+            const ctx = canvas.getContext('2d');
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            function renderFrame() {
+                animFrameId = requestAnimationFrame(renderFrame);
+                analyser.getByteTimeDomainData(dataArray);
+
+                ctx.fillStyle = '#030712';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#E63946';
+                ctx.beginPath();
+
+                const sliceWidth = canvas.width * 1.0 / bufferLength;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    const v = dataArray[i] / 128.0;
+                    const y = v * canvas.height / 2;
+
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                    x += sliceWidth;
+                }
+
+                ctx.lineTo(canvas.width, canvas.height / 2);
+                ctx.stroke();
+            }
+
+            renderFrame();
+        }
+
+        function updateFrequency(val) {
+            document.getElementById('freq-display').innerText = val;
+            
+            if (isPlaying && oscillator) {
+                oscillator.frequency.setValueAtTime(val, audioCtx.currentTime);
+            }
+
+            const typeLabel = document.getElementById('freq-type');
+
+            if (val < 60) {
+                typeLabel.innerText = "ย่านเสียงเบสต่ำลึก (Sub-Bass)";
+                typeLabel.className = "text-lg font-medium text-red-500 mt-2";
+            } else if (val < 250) {
+                typeLabel.innerText = "ย่านเสียงเบส (Bass)";
+                typeLabel.className = "text-lg font-medium text-orange-400 mt-2";
+            } else if (val < 4000) {
+                typeLabel.innerText = "ย่านเสียงกลาง (Mid-Range / Human Voice)";
+                typeLabel.className = "text-lg font-medium text-yellow-400 mt-2";
+            } else {
+                typeLabel.innerText = "ย่านเสียงแหลม (Treble / High Frequency)";
+                typeLabel.className = "text-lg font-medium text-blue-400 mt-2";
+            }
+        }
+
+        function setPreset(freq, label) {
+            document.getElementById('freq-slider').value = freq;
+            updateFrequency(freq);
+        }
+
+        function updateVolume(val) {
+            if (isPlaying && gainNode) {
+                gainNode.gain.setValueAtTime(val, audioCtx.currentTime);
+            }
+        }
+
+        // Decibel Meter Logic
+        function updateDbMeter(val) {
+            document.getElementById('db-val').innerText = val;
+            const status = document.getElementById('db-status');
+            const env = document.getElementById('db-env');
+            const time = document.getElementById('db-time');
+
+            if (val < 70) {
+                status.innerText = "ระดับเสียงเงียบและปลอดภัยมาก";
+                status.className = "text-sm font-semibold text-green-400";
+                env.innerText = "ห้องเงียบ / เสียงกระซิบ / ร้านกาแฟ";
+                time.innerText = "ฟังได้ไม่จำกัดเวลา";
+            } else if (val <= 85) {
+                status.innerText = "ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป";
+                status.className = "text-sm font-semibold text-blue-400";
+                env.innerText = "เสียงเครื่องยนต์รถยนต์ปกติ / เสียงห้องโดยสาร";
+                time.innerText = "8 ชั่วโมงต่อเนื่อง (มาตรฐาน OSHA)";
+            } else if (val <= 100) {
+                status.innerText = "ระดับเสียงค่อนข้างดัง ควรระวังเมื่อฟังเป็นเวลานาน";
+                status.className = "text-sm font-semibold text-yellow-400";
+                env.innerText = "เสียงระบบเครื่องเสียงรถยนต์ระดับดังปานกลาง / ไซเรน";
+                time.innerText = "ไม่เกิน 2 ชั่วโมงต่อเนื่อง";
+            } else {
+                status.innerText = "⚠️ เสียงดังมากเกินไป! อาจเป็นอันตรายต่อแก้วหู";
+                status.className = "text-sm font-semibold text-red-500";
+                env.innerText = "คอนเสิร์ต / ตู้ซับวูฟเฟอร์แข่งขันพลังสูง";
+                time.innerText = "ไม่เกิน 15 นาทีต่อเนื่อง (ต้องสวมใส่อุปกรณ์ป้องกัน)";
+            }
+        }
+
+        // Calculators
+        function calculateAmpRMS() {
+            const rms = parseFloat(document.getElementById('calc-speaker-rms').value) || 0;
+            const count = parseInt(document.getElementById('calc-speaker-count').value) || 0;
+            const recommendedAmp = Math.round((rms * count) * 1.25);
+
+            document.getElementById('res-amp-val').innerText = recommendedAmp.toLocaleString();
+            document.getElementById('result-amp').classList.remove('hidden');
+        }
+
+        function calculateSubBox() {
+            const size = document.getElementById('calc-sub-size').value;
+            const type = document.getElementById('calc-box-type').value;
+
+            let cuft = 0;
+            if (size === "8") cuft = (type === 'sealed') ? 0.35 : 0.6;
+            else if (size === "10") cuft = (type === 'sealed') ? 0.65 : 1.2;
+            else if (size === "12") cuft = (type === 'sealed') ? 1.0 : 1.75;
+            else if (size === "15") cuft = (type === 'sealed') ? 1.8 : 3.0;
+
+            const liters = (cuft * 28.3168).toFixed(1);
+
+            document.getElementById('res-box-cuft').innerText = cuft;
+            document.getElementById('res-box-liter').innerText = liters;
+            document.getElementById('result-box').classList.remove('hidden');
+        }
+
+        // Google Sheets Form Submit
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzPBkfw1Oy34NLqZp8uLpFXdxoch1HZYv03Ngks6xwOtAKCA64qeanujFanO_yD2JbMOA/exec';
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -390,27 +735,21 @@
             
             isSubmitting = true;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> กำลังบันทึกข้อมูล...';
-            submitBtn.classList.remove('bg-brand', 'hover:bg-red-700');
-            submitBtn.classList.add('bg-gray-600', 'cursor-not-allowed');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> กำลังส่งข้อมูลไปยัง Cloud...';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
             .then(response => {
-                alert('🎉 ขอบคุณครับ! ระบบได้รับข้อมูลการจองคิวเรียบร้อยแล้ว');
+                alert('🎉 บันทึกข้อมูลสำเร็จ! ข้อมูลถูกบันทึกลงระบบ Cloud เรียบร้อยแล้ว');
                 form.reset();
                 isSubmitting = false;
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
-                submitBtn.classList.remove('bg-gray-600', 'cursor-not-allowed');
-                submitBtn.classList.add('bg-brand', 'hover:bg-red-700');
             })
             .catch(error => {
-                alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง');
+                alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
                 isSubmitting = false;
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
-                submitBtn.classList.remove('bg-gray-600', 'cursor-not-allowed');
-                submitBtn.classList.add('bg-brand', 'hover:bg-red-700');
             });
         });
     </script>
