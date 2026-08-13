@@ -366,7 +366,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. iLX-F511E -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="f511e.png" alt="iLX-F511E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -374,8 +373,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 11 นิ้ว ความละเอียดระดับ HD รองรับ Wireless Apple CarPlay, Android Auto และระบบเสียง Hi-Res Audio</p>
                         </div>
                     </div>
-
-                    <!-- 2. iLX-F509E -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="f509e.png" alt="iLX-F509E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -383,8 +380,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 9 นิ้ว ปรับระดับมุมมองได้ รองรับไฟล์เพลงคุณภาพสูง Hi-Res Audio และการเชื่อมต่อไร้สาย</p>
                         </div>
                     </div>
-
-                    <!-- 3. iLX-W770E -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="w770e.png" alt="iLX-W770E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -392,8 +387,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอ 2-DIN ขนาด 7 นิ้ว ดีไซน์บางเฉียบ ถ่ายทอดมิติเสียงคมชัด รองรับ Apple CarPlay และ Android Auto</p>
                         </div>
                     </div>
-
-                    <!-- 4. AX809 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="ax809.png" alt="AX809" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -401,8 +394,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอสมาร์ตมัลติมีเดียประมวลผลรวดเร็ว แสดงผลคมชัด ปรับแต่งระบบเสียงได้ละเอียดสมบูรณ์แบบ</p>
                         </div>
                     </div>
-
-                    <!-- 5. AW409S -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="aw409s.png" alt="AW409S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -479,10 +470,56 @@
                     </div>
                 </div>
 
+                <!-- เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety) -->
                 <div class="card-effect rounded-3xl p-6 md:p-8 border-blue-500/30">
-                    <h3 class="text-2xl font-bold text-white mb-2 flex items-center"><i class="fas fa-shield-alt text-blue-500 mr-3"></i> เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety)</h3>
-                    <p class="text-gray-400 text-sm mb-6">จำลองระดับความเดซิเบล (dB) เพื่อศึกษาการฟังเสียงเครื่องเสียงรถยนต์อย่างปลอดภัยตามมาตรฐาน OSHA</p>
+                    <h3 class="text-2xl font-bold text-white mb-2 flex items-center">
+                        <i class="fas fa-shield-alt text-blue-500 mr-3"></i> เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety)
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-6">วัดระดับความเดซิเบล (dB) จริงผ่านไมโครโฟน หรือทดลองปรับระดับจำลองตามมาตรฐาน OSHA</p>
 
+                    <!-- 1. ส่วนวัดระดับเสียงจริงจากไมโครโฟน ( Real-Time Mic dB Meter ) [เพิ่มใหม่ข้างบน] -->
+                    <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 mb-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                            <div>
+                                <div class="text-white font-bold text-base flex items-center">
+                                    <i class="fas fa-microphone text-brand mr-2"></i> วัดระดับเสียงจริงจากไมโครโฟน (Real-Time Mic)
+                                </div>
+                                <div class="text-xs text-gray-400 mt-1">เลือกไมโครโฟนของคุณเพื่อเริ่มต้นวัดเสียงบรรยากาศสด</div>
+                            </div>
+                            <!-- Dropdown เลือกไมโครโฟน -->
+                            <div class="w-full md:w-auto min-w-[220px]">
+                                <label class="block text-[11px] text-gray-400 mb-1">เลือกอุปกรณ์ไมโครโฟน:</label>
+                                <select id="mic-select" onchange="changeMicDevice()" class="w-full bg-gray-950 border border-gray-700 text-xs rounded-xl px-3 py-2.5 text-gray-200 focus:outline-none focus:border-brand">
+                                    <option value="">กำลังโหลดรายการไมค์...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                            <div class="text-center bg-black/60 p-4 rounded-xl border border-gray-800">
+                                <div class="text-xs text-gray-400">ระดับเสียงจริงที่วัดได้</div>
+                                <div class="text-5xl font-black text-brand my-2"><span id="real-db-val">--</span> <span class="text-xl font-normal text-gray-400">dB SPL</span></div>
+                                <div id="real-db-status" class="text-xs font-semibold text-gray-500">กดปุ่มเพื่อเริ่มเปิดไมโครโฟน</div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <button id="mic-toggle-btn" onclick="toggleMic()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center text-sm shadow-md">
+                                    <i class="fas fa-microphone mr-2" id="mic-btn-icon"></i> <span id="mic-btn-text">เปิดใช้งานไมโครโฟน</span>
+                                </button>
+                                <div class="text-[11px] text-gray-300 bg-black/40 p-3 rounded-lg border border-gray-800 flex items-center">
+                                    <i class="fas fa-info-circle text-blue-400 mr-2 text-base"></i> <span id="real-db-env">รอเปิดใช้งานไมโครโฟนเพื่อประเมินผล...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex py-2 items-center mb-6">
+                        <div class="flex-grow border-t border-gray-800"></div>
+                        <span class="flex-shrink mx-4 text-xs font-medium text-gray-500 uppercase tracking-widest">หรือ ทดลองเครื่องวัดแบบจำลอง (Simulation)</span>
+                        <div class="flex-grow border-t border-gray-800"></div>
+                    </div>
+
+                    <!-- 2. เครื่องวัดแบบจำลองเดิม ( Simulation dB Meter ) [คงไว้ตามเดิม] -->
                     <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 text-center mb-6">
                         <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
                         <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
@@ -641,7 +678,7 @@
         </section>
     </div>
 
-    <!-- 6. หน้า Admin Control Panel (ลิงก์ Google Sheets ตารางจริง) -->
+    <!-- 6. หน้า Admin Control Panel -->
     <div id="page-admin" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -832,6 +869,11 @@
                 activeEl.classList.remove('text-gray-300');
                 activeEl.classList.add(activeNav === 'admin' ? 'text-yellow-400' : 'text-brand');
             }
+
+            // ถ้าเปิดหน้า frequency ให้ดึงรายการไมโครโฟน
+            if (pageName === 'frequency') {
+                getMicDevices();
+            }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -871,7 +913,6 @@
             const freq = parseFloat(document.getElementById('freq-slider').value);
             const volume = parseFloat(document.getElementById('volume-slider').value);
 
-            // 🌟 ปรับปรุง: ถ้าเป็นความถี่ต่ำ (<= 60 Hz) ให้ใช้รูปคลื่น Triangle Wave และเพิ่มแรงขับเพื่อให้เบสครางออกได้ชัดเจน
             if (freq <= 60) {
                 oscillator.type = 'triangle';
                 gainNode.gain.setValueAtTime(Math.min(volume * 1.5, 1.0), audioCtx.currentTime);
@@ -965,7 +1006,6 @@
             
             if (isPlaying && oscillator) {
                 oscillator.frequency.setValueAtTime(val, audioCtx.currentTime);
-                // สลับชนิดคลื่นเสียงตามย่านความถี่ขณะเล่น
                 if (val <= 60) {
                     oscillator.type = 'triangle';
                 } else {
@@ -1003,7 +1043,169 @@
             }
         }
 
-        // Decibel Meter Logic
+        // ==========================================
+        // Real-Time Microphone Decibel Meter Logic
+        // ==========================================
+        let micStream = null;
+        let micAudioCtx = null;
+        let micAnalyser = null;
+        let micSource = null;
+        let isMicActive = false;
+        let micAnimFrame = null;
+
+        // ค้นหาอุปกรณ์ไมโครโฟนที่มีในเครื่อง
+        async function getMicDevices() {
+            const select = document.getElementById('mic-select');
+            if (!select) return;
+            
+            try {
+                // ร้องขอสิทธิ์การใช้งานไมค์เบื้องต้นเพื่อให้ได้ชื่อ Label ของอุปกรณ์
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    await navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                        stream.getTracks().forEach(track => track.stop());
+                    }).catch(() => {});
+                }
+
+                const devices = await navigator.mediaDevices.enumerateDevices();
+                const audioInputs = devices.filter(device => device.kind === 'audioinput');
+                
+                select.innerHTML = '';
+                if (audioInputs.length === 0) {
+                    select.innerHTML = '<option value="">ไม่พบอุปกรณ์ไมโครโฟน</option>';
+                    return;
+                }
+
+                audioInputs.forEach((device, index) => {
+                    const opt = document.createElement('option');
+                    opt.value = device.deviceId;
+                    opt.text = device.label || `ไมโครโฟน ${index + 1}`;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                console.error("Mic enumeration error:", err);
+                select.innerHTML = '<option value="">ไมโครโฟนเริ่มต้นระบบ (Default Mic)</option>';
+            }
+        }
+
+        async function toggleMic() {
+            if (isMicActive) {
+                stopMic();
+            } else {
+                await startMic();
+            }
+        }
+
+        async function startMic() {
+            const select = document.getElementById('mic-select');
+            const deviceId = select ? select.value : '';
+            const constraints = {
+                audio: deviceId ? { deviceId: { exact: deviceId } } : true
+            };
+
+            try {
+                micStream = await navigator.mediaDevices.getUserMedia(constraints);
+                micAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                micSource = micAudioCtx.createMediaStreamSource(micStream);
+                micAnalyser = micAudioCtx.createAnalyser();
+                micAnalyser.fftSize = 1024;
+                
+                micSource.connect(micAnalyser);
+                isMicActive = true;
+
+                document.getElementById('mic-btn-icon').className = 'fas fa-microphone-slash mr-2';
+                document.getElementById('mic-btn-text').innerText = 'ปิดไมโครโฟน';
+                document.getElementById('mic-toggle-btn').classList.replace('bg-brand', 'bg-gray-700');
+
+                processMicData();
+            } catch (err) {
+                alert('ไม่สามารถเปิดใช้งานไมโครโฟนได้: ' + err.message);
+            }
+        }
+
+        function stopMic() {
+            if (micStream) {
+                micStream.getTracks().forEach(track => track.stop());
+                micStream = null;
+            }
+            if (micAudioCtx) {
+                micAudioCtx.close();
+                micAudioCtx = null;
+            }
+            if (micAnimFrame) {
+                cancelAnimationFrame(micAnimFrame);
+            }
+            isMicActive = false;
+
+            document.getElementById('real-db-val').innerText = '--';
+            document.getElementById('real-db-status').innerText = 'กดปุ่มเพื่อเริ่มเปิดไมโครโฟน';
+            document.getElementById('real-db-status').className = 'text-xs font-semibold text-gray-500';
+            document.getElementById('real-db-env').innerText = 'รอเปิดใช้งานไมโครโฟนเพื่อประเมินผล...';
+            
+            document.getElementById('mic-btn-icon').className = 'fas fa-microphone mr-2';
+            document.getElementById('mic-btn-text').innerText = 'เปิดใช้งานไมโครโฟน';
+            document.getElementById('mic-toggle-btn').classList.replace('bg-gray-700', 'bg-brand');
+        }
+
+        async function changeMicDevice() {
+            if (isMicActive) {
+                stopMic();
+                await startMic();
+            }
+        }
+
+        function processMicData() {
+            if (!isMicActive || !micAnalyser) return;
+
+            const bufferLength = micAnalyser.fftSize;
+            const dataArray = new Float32Array(bufferLength);
+            micAnalyser.getFloatTimeDomainData(dataArray);
+
+            let sumSquares = 0;
+            for (let i = 0; i < bufferLength; i++) {
+                sumSquares += dataArray[i] * dataArray[i];
+            }
+            let rms = Math.sqrt(sumSquares / bufferLength);
+
+            // แปลงสัญญาณ RMS เป็นความดังเดซิเบลจำลอง (dB SPL)
+            let db = 0;
+            if (rms > 0) {
+                let dbFS = 20 * Math.log10(rms);
+                db = Math.round(dbFS + 95); // ชดเชยค่าระดับ Reference SPL
+            } else {
+                db = 35;
+            }
+
+            // จำกัดขอบเขตความดังให้อยู่ในช่วง 30-130 dB
+            db = Math.max(30, Math.min(130, db));
+
+            const display = document.getElementById('real-db-val');
+            const status = document.getElementById('real-db-status');
+            const env = document.getElementById('real-db-env');
+
+            display.innerText = db;
+
+            if (db < 60) {
+                status.innerText = "ระดับเสียงเงียบมาก";
+                status.className = "text-xs font-semibold text-green-400";
+                env.innerText = "บรรยากาศห้องเงียบ / เสียงกระซิบเบาๆ";
+            } else if (db <= 85) {
+                status.innerText = "ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป";
+                status.className = "text-xs font-semibold text-blue-400";
+                env.innerText = "เสียงพูดคุยปกติ / ฟังเพลงระดับความดังสบายหู";
+            } else if (db <= 100) {
+                status.innerText = "⚠️ เสียงค่อนข้างดัง ควรระวังเมื่อฟังเป็นเวลานาน";
+                status.className = "text-xs font-semibold text-yellow-400";
+                env.innerText = "เสียงเครื่องเสียงรถยนต์ระดับดัง / เสียงการจราจร";
+            } else {
+                status.innerText = "🚨 เสียงดังอันตราย! เสี่ยงต่อการสูญเสียการได้ยิน";
+                status.className = "text-xs font-semibold text-red-500 animate-pulse";
+                env.innerText = "ระดับเสียงคอนเสิร์ต / ตู้ซับวูฟเฟอร์แข่งขันพลังสูง";
+            }
+
+            micAnimFrame = requestAnimationFrame(processMicData);
+        }
+
+        // Decibel Meter Logic (Simulation Original)
         function updateDbMeter(val) {
             document.getElementById('db-val').innerText = val;
             const status = document.getElementById('db-status');
@@ -1060,7 +1262,7 @@
             document.getElementById('result-box').classList.remove('hidden');
         }
 
-        // Google Sheets Form Submit (Web App API Endpoint)
+        // Google Sheets Form Submit
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzPBkfw1Oy34NLqZp8uLpFXdxoch1HZYv03Ngks6xwOtAKCA64qeanujFanO_yD2JbMOA/exec';
         const form = document.getElementById('bookingForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -1092,6 +1294,7 @@
 
         window.onload = function() {
             updateAdminUI();
+            getMicDevices();
         };
     </script>
 </body>
