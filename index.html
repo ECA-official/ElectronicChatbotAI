@@ -253,8 +253,9 @@
                         <span class="text-xl md:text-2xl font-bold text-white">PIONEER</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
-                        <span class="text-xl md:text-2xl font-bold text-gray-300">SONY</span>
+                    <div onclick="switchPage('sony-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">SONY</span>
+                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
                 </div>
             </div>
@@ -499,6 +500,72 @@
                         <div>
                             <h3 class="text-2xl font-bold text-white">NA3615-W7</h3>
                             <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN หน้าจอ 7 นิ้ว ดีไซน์ตัวเครื่องสั้น (Short-Body Chassis) ติดตั้งง่ายระบายความร้อนดี, จอ Capacitive Touchscreen, รองรับ Bluetooth, USB/AUX, 10-Band EQ, กำลังขับ 50W x 4 และรองรับกล้องมองหลัง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.7 หน้า Sony -->
+    <div id="page-sony-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
+                </button>
+                <div class="mb-12 border-b border-gray-800 pb-6">
+                    <h2 class="text-4xl font-bold text-white">SONY</h2>
+                    <p class="text-gray-400 text-sm mt-1">สุดยอดนวัตกรรมเครื่องเสียงระดับ High-Resolution Mobile ES และหน้าจอสมาร์ตมัลติมีเดียระดับพรีเมียม</p>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- 1. XAV-9500ES -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-9500es.png" alt="XAV-9500ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-9500ES</h3>
+                            <p class="text-gray-400 text-xs mt-1">เรือธง Mobile ES Series จอลอย HD Capacitive 10.1 นิ้ว (1280x720), ชิป ESS DAC 32-bit ประมวลผลระดับออดิโอไฟล์, Hi-Res Audio Wireless (LDAC), Wireless Apple CarPlay & Android Auto, Pre-out 5V แรงสูง 3 ชุด, เพาเวอร์แอมป์ Class D ในตัว</p>
+                        </div>
+                    </div>
+                    <!-- 2. XAV-9000ES -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-9000es.png" alt="XAV-9000ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-9000ES</h3>
+                            <p class="text-gray-400 text-xs mt-1">รุ่นพรีเมียม 2-DIN Mobile ES หน้าจอ Flush-mount Capacitive HD 6.75 นิ้ว คมชัดสูง, ESS DAC 32-bit Hi-Res Audio, Wireless Apple CarPlay & Android Auto, DSP Time Alignment ละเอียดแม่นยำ, Pre-out 5V RCA 3 ชุด</p>
+                        </div>
+                    </div>
+                    <!-- 3. XAV-AX8500 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-ax8500.png" alt="XAV-AX8500" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-AX8500</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอย HD ขนาด 10.1 นิ้ว ปรับระดับได้ 3 ทิศทาง (Tilt, Depth, Height), รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input สำหรับสตรีมวิดีโอ, DSP 14-Band EQ, Pre-out 5V RCA 3 ชุด</p>
+                        </div>
+                    </div>
+                    <!-- 4. XAV-AX6000 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-ax6000.png" alt="XAV-AX6000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-AX6000</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอไร้ขอบ Capacitive ขนาด 6.95 นิ้ว Sleek Design, รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input, Pre-out 5V แรงสูง 3 ชุด, ระบบ Quick Wake-Up บูตเครื่องรวดเร็วทันใจ</p>
+                        </div>
+                    </div>
+                    <!-- 5. XAV-AX4000 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-ax4000.png" alt="XAV-AX4000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-AX4000</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอสัมผัสขนาด 6.95 นิ้ว แบบลดแสงสะท้อน (Anti-Glare Touchscreen), Wireless Apple CarPlay & Android Auto, Bluetooth สตรีมมิ่งไฟล์คุณภาพสูง LDAC, DSP 14-Band EQ & Time Alignment, Pre-out 2V 3 ชุด</p>
+                        </div>
+                    </div>
+                    <!-- 6. XAV-AX3200 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="xav-ax3200.png" alt="XAV-AX3200" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">XAV-AX3200</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.95 นิ้ว Anti-Glare, รองรับ Apple CarPlay & Android Auto ผ่านสาย USB, WebLink Cast สะท้อนหน้าจอสมาร์ตโฟน, A/V Input ช่องต่อสัญญาณภาพและเสียง, Dynamic Stage Organizer (DSO), Pre-out 2V 3 ชุด</p>
                         </div>
                     </div>
                 </div>
@@ -960,7 +1027,7 @@
             });
 
             let activeNav = pageName;
-            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit'].includes(pageName)) {
+            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit', 'sony-headunit'].includes(pageName)) {
                 activeNav = 'product';
             }
 
