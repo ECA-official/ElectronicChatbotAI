@@ -175,6 +175,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 1. เครื่องเล่นและหน้าจอ -->
                     <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-headunit')">
                         <i class="fas fa-radio text-brand text-4xl mb-6"></i>
                         <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
@@ -188,39 +189,67 @@
                         </div>
                     </div>
 
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
+                    <!-- 2. ลำโพง -->
+                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-speaker')">
                         <i class="fas fa-volume-up text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">2. ลำโพง</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                            2. ลำโพง <i class="fas fa-chevron-right text-sm text-gray-500"></i>
+                        </h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Speakers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น และแกนร่วม</p>
+                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นลำโพง ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น และแกนร่วม</p>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
+                            <p class="text-gray-400 text-sm mt-2">Focal, Audison, Alpine, JL Audio, Rockford Fosgate, Kicker, Ground Zero, Helix</p>
+                        </div>
                     </div>
 
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
+                    <!-- 3. เพาเวอร์แอมป์ -->
+                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-poweramp')">
                         <i class="fas fa-bolt text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">3. เพาเวอร์แอมป์</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                            3. เพาเวอร์แอมป์ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
+                        </h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Power Amplifiers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น</p>
+                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นเพาเวอร์แอมป์ ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น</p>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
+                            <p class="text-gray-400 text-sm mt-2">Focal, Audison, Alpine, JL Audio, Rockford Fosgate, Kicker, Ground Zero, Helix</p>
+                        </div>
                     </div>
 
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden">
+                    <!-- 4. ซับวูฟเฟอร์ -->
+                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-subwoofer')">
                         <i class="fas fa-compact-disc text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">4. ซับวูฟเฟอร์</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                            4. ซับวูฟเฟอร์ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
+                        </h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(Subwoofers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง</p>
+                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นซับวูฟเฟอร์ ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง</p>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
+                            <p class="text-gray-400 text-sm mt-2">JL Audio , Rockford Fosgate , Kicker , Helix , Ground Zero , Alpine , Status</p>
+                        </div>
                     </div>
 
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden md:col-span-2 lg:col-span-1">
+                    <!-- 5. หน่วยประมวลผลเสียง -->
+                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden md:col-span-2 lg:col-span-1 cursor-pointer" onclick="switchPage('brands-dsp')">
                         <i class="fas fa-sliders-h text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">5. หน่วยประมวลผลเสียง</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                            5. หน่วยประมวลผลเสียง <i class="fas fa-chevron-right text-sm text-gray-500"></i>
+                        </h3>
                         <h4 class="text-brand text-sm font-semibold mb-3">(DSP)</h4>
-                        <p class="text-gray-400 text-sm mb-6">ปรับจูนคลื่นความถี่แยกอิสระแต่ละลำโพง ตั้งค่ามิติเวทีเสียง</p>
+                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่น DSP ปรับจูนคลื่นความถี่แยกอิสระแต่ละลำโพง ตั้งค่ามิติเวทีเสียง</p>
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
+                            <p class="text-gray-400 text-sm mt-2">Audison, Helix, Alpine, Ground Zero, Hertz, Brax</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- 2.1 หน้า Brands -->
+    <!-- 2.1 หน้า Brands เครื่องเล่น -->
     <div id="page-brands-headunit" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,6 +285,194 @@
                     <div onclick="switchPage('sony-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
                         <span class="text-xl md:text-2xl font-bold text-white">SONY</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.1.1 หน้า Brands ลำโพง -->
+    <div id="page-brands-speaker" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
+                </button>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์ลำโพง</h2>
+                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดลำโพงระดับโลก</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">FOCAL</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
+                        <span class="text-xs text-brand mt-2">ลำโพง</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.1.2 หน้า Brands เพาเวอร์แอมป์ -->
+    <div id="page-brands-poweramp" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
+                </button>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์เพาเวอร์แอมป์</h2>
+                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดเพาเวอร์แอมป์ระดับโลก</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">FOCAL</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
+                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.1.3 หน้า Brands ซับวูฟเฟอร์ -->
+    <div id="page-brands-subwoofer" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
+                </button>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์ซับวูฟเฟอร์</h2>
+                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดซับวูฟเฟอร์ระดับโลก</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">STATUS</span>
+                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.1.4 หน้า Brands DSP -->
+    <div id="page-brands-dsp" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
+                </button>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์หน่วยประมวลผลเสียง (DSP)</h2>
+                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดหน่วยประมวลผลเสียงระดับโลก</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">HERTZ</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
+                    </div>
+                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">BRAX</span>
+                        <span class="text-xs text-brand mt-2">DSP</span>
                     </div>
                 </div>
             </div>
@@ -642,51 +859,9 @@
                     <h3 class="text-2xl font-bold text-white mb-2 flex items-center">
                         <i class="fas fa-shield-alt text-blue-500 mr-3"></i> เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety)
                     </h3>
-                    <p class="text-gray-400 text-sm mb-6">วัดระดับความเดซิเบล (dB) จริงผ่านไมโครโฟน หรือทดลองปรับระดับจำลองตามมาตรฐาน OSHA</p>
+                    <p class="text-gray-400 text-sm mb-6">ทดลองปรับระดับความดังจำลอง (Simulation) และประเมินเวลาฟังปลอดภัยตามมาตรฐาน OSHA</p>
 
-                    <!-- 1. ส่วนวัดระดับเสียงจริงจากไมโครโฟน ( Real-Time Mic dB Meter ) -->
-                    <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 mb-8">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-                            <div>
-                                <div class="text-white font-bold text-base flex items-center">
-                                    <i class="fas fa-microphone text-brand mr-2"></i> วัดระดับเสียงจริงจากไมโครโฟน (Real-Time Mic)
-                                </div>
-                                <div class="text-xs text-gray-400 mt-1">เลือกไมโครโฟนของคุณเพื่อเริ่มต้นวัดเสียงบรรยากาศสด</div>
-                            </div>
-                            <!-- Dropdown เลือกไมโครโฟน -->
-                            <div class="w-full md:w-auto min-w-[220px]">
-                                <label class="block text-[11px] text-gray-400 mb-1">เลือกอุปกรณ์ไมโครโฟน:</label>
-                                <select id="mic-select" onchange="changeMicDevice()" class="w-full bg-gray-950 border border-gray-700 text-xs rounded-xl px-3 py-2.5 text-gray-200 focus:outline-none focus:border-brand">
-                                    <option value="">กำลังโหลดรายการไมค์...</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-                            <div class="text-center bg-black/60 p-4 rounded-xl border border-gray-800">
-                                <div class="text-xs text-gray-400">ระดับเสียงจริงที่วัดได้</div>
-                                <div class="text-5xl font-black text-brand my-2"><span id="real-db-val">--</span> <span class="text-xl font-normal text-gray-400">dB SPL</span></div>
-                                <div id="real-db-status" class="text-xs font-semibold text-gray-500">กดปุ่มเพื่อเริ่มเปิดไมโครโฟน</div>
-                            </div>
-
-                            <div class="space-y-3">
-                                <button id="mic-toggle-btn" onclick="toggleMic()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center text-sm shadow-md">
-                                    <i class="fas fa-microphone mr-2" id="mic-btn-icon"></i> <span id="mic-btn-text">เปิดใช้งานไมโครโฟน</span>
-                                </button>
-                                <div class="text-[11px] text-gray-300 bg-black/40 p-3 rounded-lg border border-gray-800 flex items-center">
-                                    <i class="fas fa-info-circle text-blue-400 mr-2 text-base"></i> <span id="real-db-env">รอเปิดใช้งานไมโครโฟนเพื่อประเมินผล...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative flex py-2 items-center mb-6">
-                        <div class="flex-grow border-t border-gray-800"></div>
-                        <span class="flex-shrink mx-4 text-xs font-medium text-gray-500 uppercase tracking-widest">หรือ ทดลองเครื่องวัดแบบจำลอง (Simulation)</span>
-                        <div class="flex-grow border-t border-gray-800"></div>
-                    </div>
-
-                    <!-- 2. เครื่องวัดแบบจำลองเดิม ( Simulation dB Meter ) -->
+                    <!-- เครื่องวัดแบบจำลอง ( Simulation dB Meter ) -->
                     <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 text-center mb-6">
                         <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
                         <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
@@ -1027,7 +1202,7 @@
             });
 
             let activeNav = pageName;
-            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit', 'sony-headunit'].includes(pageName)) {
+            if (['brands-headunit', 'brands-poweramp', 'brands-speaker', 'brands-subwoofer', 'brands-dsp', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit', 'sony-headunit'].includes(pageName)) {
                 activeNav = 'product';
             }
 
@@ -1035,10 +1210,6 @@
             if(activeEl) {
                 activeEl.classList.remove('text-gray-300');
                 activeEl.classList.add(activeNav === 'admin' ? 'text-yellow-400' : 'text-brand');
-            }
-
-            if (pageName === 'frequency') {
-                getMicDevices();
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1209,163 +1380,7 @@
             }
         }
 
-        // Real-Time Microphone Decibel Meter Logic
-        let micStream = null;
-        let micAudioCtx = null;
-        let micAnalyser = null;
-        let micSource = null;
-        let isMicActive = false;
-        let micAnimFrame = null;
-
-        async function getMicDevices() {
-            const select = document.getElementById('mic-select');
-            if (!select) return;
-            
-            try {
-                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                    await navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
-                        stream.getTracks().forEach(track => track.stop());
-                    }).catch(() => {});
-                }
-
-                const devices = await navigator.mediaDevices.enumerateDevices();
-                const audioInputs = devices.filter(device => device.kind === 'audioinput');
-                
-                select.innerHTML = '';
-                if (audioInputs.length === 0) {
-                    select.innerHTML = '<option value="">ไม่พบอุปกรณ์ไมโครโฟน</option>';
-                    return;
-                }
-
-                audioInputs.forEach((device, index) => {
-                    const opt = document.createElement('option');
-                    opt.value = device.deviceId;
-                    opt.text = device.label || `ไมโครโฟน ${index + 1}`;
-                    select.appendChild(opt);
-                });
-            } catch (err) {
-                console.error("Mic enumeration error:", err);
-                select.innerHTML = '<option value="">ไมโครโฟนเริ่มต้นระบบ (Default Mic)</option>';
-            }
-        }
-
-        async function toggleMic() {
-            if (isMicActive) {
-                stopMic();
-            } else {
-                await startMic();
-            }
-        }
-
-        async function startMic() {
-            const select = document.getElementById('mic-select');
-            const deviceId = select ? select.value : '';
-            const constraints = {
-                audio: deviceId ? { deviceId: { exact: deviceId } } : true
-            };
-
-            try {
-                micStream = await navigator.mediaDevices.getUserMedia(constraints);
-                micAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                micSource = micAudioCtx.createMediaStreamSource(micStream);
-                micAnalyser = micAudioCtx.createAnalyser();
-                micAnalyser.fftSize = 1024;
-                
-                micSource.connect(micAnalyser);
-                isMicActive = true;
-
-                document.getElementById('mic-btn-icon').className = 'fas fa-microphone-slash mr-2';
-                document.getElementById('mic-btn-text').innerText = 'ปิดไมโครโฟน';
-                document.getElementById('mic-toggle-btn').classList.replace('bg-brand', 'bg-gray-700');
-
-                processMicData();
-            } catch (err) {
-                alert('ไม่สามารถเปิดใช้งานไมโครโฟนได้: ' + err.message);
-            }
-        }
-
-        function stopMic() {
-            if (micStream) {
-                micStream.getTracks().forEach(track => track.stop());
-                micStream = null;
-            }
-            if (micAudioCtx) {
-                micAudioCtx.close();
-                micAudioCtx = null;
-            }
-            if (micAnimFrame) {
-                cancelAnimationFrame(micAnimFrame);
-            }
-            isMicActive = false;
-
-            document.getElementById('real-db-val').innerText = '--';
-            document.getElementById('real-db-status').innerText = 'กดปุ่มเพื่อเริ่มเปิดไมโครโฟน';
-            document.getElementById('real-db-status').className = 'text-xs font-semibold text-gray-500';
-            document.getElementById('real-db-env').innerText = 'รอเปิดใช้งานไมโครโฟนเพื่อประเมินผล...';
-            
-            document.getElementById('mic-btn-icon').className = 'fas fa-microphone mr-2';
-            document.getElementById('mic-btn-text').innerText = 'เปิดใช้งานไมโครโฟน';
-            document.getElementById('mic-toggle-btn').classList.replace('bg-gray-700', 'bg-brand');
-        }
-
-        async function changeMicDevice() {
-            if (isMicActive) {
-                stopMic();
-                await startMic();
-            }
-        }
-
-        function processMicData() {
-            if (!isMicActive || !micAnalyser) return;
-
-            const bufferLength = micAnalyser.fftSize;
-            const dataArray = new Float32Array(bufferLength);
-            micAnalyser.getFloatTimeDomainData(dataArray);
-
-            let sumSquares = 0;
-            for (let i = 0; i < bufferLength; i++) {
-                sumSquares += dataArray[i] * dataArray[i];
-            }
-            let rms = Math.sqrt(sumSquares / bufferLength);
-
-            let db = 0;
-            if (rms > 0) {
-                let dbFS = 20 * Math.log10(rms);
-                db = Math.round(dbFS + 95);
-            } else {
-                db = 35;
-            }
-
-            db = Math.max(30, Math.min(130, db));
-
-            const display = document.getElementById('real-db-val');
-            const status = document.getElementById('real-db-status');
-            const env = document.getElementById('real-db-env');
-
-            display.innerText = db;
-
-            if (db < 60) {
-                status.innerText = "ระดับเสียงเงียบมาก";
-                status.className = "text-xs font-semibold text-green-400";
-                env.innerText = "บรรยากาศห้องเงียบ / เสียงกระซิบเบาๆ";
-            } else if (db <= 85) {
-                status.innerText = "ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป";
-                status.className = "text-xs font-semibold text-blue-400";
-                env.innerText = "เสียงพูดคุยปกติ / ฟังเพลงระดับความดังสบายหู";
-            } else if (db <= 100) {
-                status.innerText = "⚠️ เสียงค่อนข้างดัง ควรระวังเมื่อฟังเป็นเวลานาน";
-                status.className = "text-xs font-semibold text-yellow-400";
-                env.innerText = "เสียงเครื่องเสียงรถยนต์ระดับดัง / เสียงการจราจร";
-            } else {
-                status.innerText = "🚨 เสียงดังอันตราย! เสี่ยงต่อการสูญเสียการได้ยิน";
-                status.className = "text-xs font-semibold text-red-500 animate-pulse";
-                env.innerText = "ระดับเสียงคอนเสิร์ต / ตู้ซับวูฟเฟอร์แข่งขันพลังสูง";
-            }
-
-            micAnimFrame = requestAnimationFrame(processMicData);
-        }
-
-        // Decibel Meter Logic (Simulation Original)
+        // Decibel Meter Logic (Simulation)
         function updateDbMeter(val) {
             document.getElementById('db-val').innerText = val;
             const status = document.getElementById('db-status');
@@ -1454,7 +1469,6 @@
 
         window.onload = function() {
             updateAdminUI();
-            getMicDevices();
         };
     </script>
 </body>
