@@ -68,7 +68,7 @@
                 
                 <div class="hidden md:flex items-center space-x-4">
                     <button onclick="openLoginModal()" id="login-btn-nav" class="text-gray-400 hover:text-white transition text-sm flex items-center">
-                        <i class="fas fa-lock mr-1.5"></i> ล็อกอินแอดมิน
+                        <i class="fas fa-lock mr-1.5"></i> Login For Admin
                     </button>
                     <button onclick="logoutAdmin()" id="logout-btn-nav" class="text-red-400 hover:text-red-300 transition text-sm hidden flex items-center">
                         <i class="fas fa-sign-out-alt mr-1.5"></i> ออกจากระบบ
@@ -98,7 +98,7 @@
             
             <div class="pt-4 border-t border-gray-800 flex flex-col space-y-3">
                 <button onclick="openLoginModal(); toggleMobileMenu();" id="login-btn-mobile" class="text-gray-400 hover:text-white text-sm flex items-center py-2">
-                    <i class="fas fa-lock mr-2"></i> ล็อกอินแอดมิน
+                    <i class="fas fa-lock mr-2"></i> Login For Admin
                 </button>
                 <button onclick="logoutAdmin(); toggleMobileMenu();" id="logout-btn-mobile" class="text-red-400 hover:text-red-300 text-sm hidden flex items-center py-2">
                     <i class="fas fa-sign-out-alt mr-2"></i> ออกจากระบบ
@@ -120,7 +120,7 @@
                 <div class="w-16 h-16 bg-brand/20 text-brand rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
                     <i class="fas fa-user-shield"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-white">เข้าสู่ระบบผู้ดูแล</h3>
+                <h3 class="text-2xl font-bold text-white">Login For Admin</h3>
                 <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน (เซสชัน 45 นาที)</p>
             </div>
             
@@ -239,8 +239,9 @@
                         <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
-                        <span class="text-xl md:text-2xl font-bold text-gray-300">JVC</span>
+                    <div onclick="switchPage('jvc-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">JVC</span>
+                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
                     <div onclick="switchPage('kenwood-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
                         <span class="text-xl md:text-2xl font-bold text-white">KENWOOD</span>
@@ -406,6 +407,48 @@
         </section>
     </div>
 
+    <!-- 2.5 หน้า JVC -->
+    <div id="page-jvc-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
+                </button>
+                <div class="mb-12 border-b border-gray-800 pb-6">
+                    <h2 class="text-4xl font-bold text-white">JVC</h2>
+                    <p class="text-gray-400 text-sm mt-1">เครื่องเล่นมัลติมีเดียและหน้าจอคุณภาพสูง ดีไซน์ล้ำสมัย รองรับการเชื่อมต่อไร้สายสมบูรณ์แบบ</p>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- 1. KW-M80AW -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="m80aw.png" alt="KW-M80AW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">KW-M80AW</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอจอลอยขนาดใหญ่ 9 นิ้ว Capacitive Touch (SVGA High Resolution), รองรับ Apple CarPlay & Android Auto แบบไร้สาย (Wireless) และต่อสาย, Wireless Mirroring, 13-Band Graphic EQ, Preout 2 ชุด + Subwoofer (2.5V), ดีไซน์ตัวเครื่องสั้น (Short Chassis) ติดตั้งง่าย</p>
+                        </div>
+                    </div>
+                    <!-- 2. KW-M690BW -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="m690bw.png" alt="KW-M690BW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">KW-M690BW</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touchscreen, รองรับ Apple CarPlay & Android Auto (Wireless / Wired), Wireless Mirroring, 13-Band EQ, Time Alignment ปรับมิติเสียงสมจริง, กำลังขับ 50W x 4, รองรับการต่อกล้องมองหลังเพื่อความปลอดภัย</p>
+                        </div>
+                    </div>
+                    <!-- 3. KW-M590BT -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="m590bt.png" alt="KW-M590BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">KW-M590BT</h3>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touch คมชัดสูง, รองรับ Apple CarPlay & Android Auto ผ่านสาย USB, USB Mirroring สะท้อนหน้าจอสมาร์ทโฟน, Gesture Touch Control สั่งงานด้วยนิ้วปัด, USB ชาร์จไว 2.1A, Learning Steering Remote ในตัว</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- 3. หน้าทดสอบคลื่นเสียง + Real-time Oscilloscope Visualizer + Decibel Meter -->
     <div id="page-frequency" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen">
@@ -477,7 +520,7 @@
                     </h3>
                     <p class="text-gray-400 text-sm mb-6">วัดระดับความเดซิเบล (dB) จริงผ่านไมโครโฟน หรือทดลองปรับระดับจำลองตามมาตรฐาน OSHA</p>
 
-                    <!-- 1. ส่วนวัดระดับเสียงจริงจากไมโครโฟน ( Real-Time Mic dB Meter ) [เพิ่มใหม่ข้างบน] -->
+                    <!-- 1. ส่วนวัดระดับเสียงจริงจากไมโครโฟน ( Real-Time Mic dB Meter ) -->
                     <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 mb-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                             <div>
@@ -519,7 +562,7 @@
                         <div class="flex-grow border-t border-gray-800"></div>
                     </div>
 
-                    <!-- 2. เครื่องวัดแบบจำลองเดิม ( Simulation dB Meter ) [คงไว้ตามเดิม] -->
+                    <!-- 2. เครื่องวัดแบบจำลองเดิม ( Simulation dB Meter ) -->
                     <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 text-center mb-6">
                         <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
                         <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
@@ -860,7 +903,7 @@
             });
 
             let activeNav = pageName;
-            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit'].includes(pageName)) {
+            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit'].includes(pageName)) {
                 activeNav = 'product';
             }
 
@@ -870,7 +913,6 @@
                 activeEl.classList.add(activeNav === 'admin' ? 'text-yellow-400' : 'text-brand');
             }
 
-            // ถ้าเปิดหน้า frequency ให้ดึงรายการไมโครโฟน
             if (pageName === 'frequency') {
                 getMicDevices();
             }
@@ -1043,9 +1085,7 @@
             }
         }
 
-        // ==========================================
         // Real-Time Microphone Decibel Meter Logic
-        // ==========================================
         let micStream = null;
         let micAudioCtx = null;
         let micAnalyser = null;
@@ -1053,13 +1093,11 @@
         let isMicActive = false;
         let micAnimFrame = null;
 
-        // ค้นหาอุปกรณ์ไมโครโฟนที่มีในเครื่อง
         async function getMicDevices() {
             const select = document.getElementById('mic-select');
             if (!select) return;
             
             try {
-                // ร้องขอสิทธิ์การใช้งานไมค์เบื้องต้นเพื่อให้ได้ชื่อ Label ของอุปกรณ์
                 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                     await navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
                         stream.getTracks().forEach(track => track.stop());
@@ -1166,16 +1204,14 @@
             }
             let rms = Math.sqrt(sumSquares / bufferLength);
 
-            // แปลงสัญญาณ RMS เป็นความดังเดซิเบลจำลอง (dB SPL)
             let db = 0;
             if (rms > 0) {
                 let dbFS = 20 * Math.log10(rms);
-                db = Math.round(dbFS + 95); // ชดเชยค่าระดับ Reference SPL
+                db = Math.round(dbFS + 95);
             } else {
                 db = 35;
             }
 
-            // จำกัดขอบเขตความดังให้อยู่ในช่วง 30-130 dB
             db = Math.max(30, Math.min(130, db));
 
             const display = document.getElementById('real-db-val');
