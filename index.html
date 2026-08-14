@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR CAR AUDIO - Science & Sound Tech</title>
+    <title>PLFR CAR AUDIO - Science & Sound Tech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
-                    <span class="text-2xl md:text-3xl font-bold text-white tracking-wider">PR CAR<span class="text-brand">AUDIO</span></span>
+                    <span class="text-2xl md:text-3xl font-bold text-white tracking-wider">PLFR CAR<span class="text-brand">AUDIO</span></span>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -122,14 +122,14 @@
                 <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน (เซสชัน 45 นาที)</p>
             </div>
             
-            <form onsubmit="handleLogin(event)" class="space-y-4">
+            <form onsubmit="handleLogin(event)" class="space-y-4" autocomplete="off">
                 <div>
                     <label class="block text-xs font-medium text-gray-400 mb-1">ชื่อผู้ใช้ (Username)</label>
-                    <input type="text" id="adminUsername" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                    <input type="text" id="adminUsername" required autocomplete="off" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-gray-400 mb-1">รหัสผ่าน (Password)</label>
-                    <input type="password" id="adminPassword" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
+                    <input type="password" id="adminPassword" required autocomplete="new-password" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
                 </div>
                 <div id="loginError" class="text-red-500 text-xs hidden text-center">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</div>
                 <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3 rounded-xl transition mt-2">
@@ -492,7 +492,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. DMX9724XS -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="dmx9724xs.png" alt="DMX9724XS" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -500,7 +499,6 @@
                             <p class="text-gray-400 text-xs mt-1">รุ่นเรือธง จอ HD 10.1 นิ้ว Optical Bonded สู้แสงสะท้อน ปรับได้ 4 ทิศทาง, Hi-Res Audio Wireless (LDAC), ช่อง Optical Out, Pre-out 5V แรงสูง RCA 3 ชุด, รองรับกล้อง HD สูงสุด 4 ตัว</p>
                         </div>
                     </div>
-                    <!-- 2. DMX8521S -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="dmx8521s.png" alt="DMX8521S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -508,7 +506,6 @@
                             <p class="text-gray-400 text-xs mt-1">รุ่นพรีเมียม จอ Capacitive 6.8 นิ้ว ดีไซน์ตัวเครื่องสั้น (Short Chassis 85mm), Hi-Res Audio Wireless (LDAC), ช่องต่อ HDMI Input, Pre-out 5V RCA 3 ชุด, 13-Band EQ & 3-Way Crossover</p>
                         </div>
                     </div>
-                    <!-- 3. DMX7522S -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="dmx7522s.png" alt="DMX7522S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -534,7 +531,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. DMH-ZF9650BT -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="zf9650bt.png" alt="DMH-ZF9650BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -542,7 +538,6 @@
                             <p class="text-gray-400 text-xs mt-1">รุ่นท็อปสุด จอลอย 10.1 นิ้ว HD Capacitive (1DIN), แถบไฟ Luminous Bar เปลี่ยนสีและซิงค์ตามจังหวะเพลง/ระบบนำทาง, HDMI Input, 3-Way Network Mode, RCA 3 ชุด (4V)</p>
                         </div>
                     </div>
-                    <!-- 2. DMH-ZF9350BT -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="zf9350bt.png" alt="DMH-ZF9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -550,7 +545,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 9 นิ้ว HD Capacitive, ชิปประมวลผล 52-bit Triple Core DSP พร้อม Master Sound Reviver, Wireless Apple CarPlay/Android Auto, Hi-Res Audio, RCA 3 ชุด (4V)</p>
                         </div>
                     </div>
-                    <!-- 3. DMH-ZS9350BT -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="zs9350bt.png" alt="DMH-ZS9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -558,7 +552,6 @@
                             <p class="text-gray-400 text-xs mt-1">จอขนาด 9 นิ้ว แบบแยกชิ้น (Modular Design) ติดตั้งง่ายเข้ากับคอนโซลเฉพาะรุ่น, ชิป 52-bit Triple Core DSP, Hi-Res Audio, 3-Way Crossover, RCA 3 ชุด (4V)</p>
                         </div>
                     </div>
-                    <!-- 4. DMH-ZF8750BT -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="zf8750bt.png" alt="DMH-ZF8750BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -637,7 +630,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. KW-M80AW -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="m80aw.png" alt="KW-M80AW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -645,7 +637,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอจอลอยขนาดใหญ่ 9 นิ้ว Capacitive Touch (SVGA High Resolution), รองรับ Apple CarPlay & Android Auto แบบไร้สาย (Wireless) และต่อสาย, Wireless Mirroring, 13-Band Graphic EQ, Preout 2 ชุด + Subwoofer (2.5V), ดีไซน์ตัวเครื่องสั้น (Short Chassis) ติดตั้งง่าย</p>
                         </div>
                     </div>
-                    <!-- 2. KW-M690BW -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="m690bw.png" alt="KW-M690BW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -653,7 +644,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touchscreen, รองรับ Apple CarPlay & Android Auto (Wireless / Wired), Wireless Mirroring, 13-Band EQ, Time Alignment ปรับมิติเสียงสมจริง, กำลังขับ 50W x 4, รองรับการต่อกล้องมองหลังเพื่อความปลอดภัย</p>
                         </div>
                     </div>
-                    <!-- 3. KW-M590BT -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="m590bt.png" alt="KW-M590BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -679,7 +669,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. NA3615-VW -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="na3615-vw.png" alt="NA3615-VW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -687,7 +676,6 @@
                             <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่นสำหรับ Volkswagen หน้าจอ Capacitive Touchscreen ขนาด 7 นิ้ว รองรับระบบ CANBUS โชว์ข้อมูลรถเดิม, Plug & Play ไม่ต้องตัดต่อสาย, Bluetooth, USB, MirrorLink, ระบบเสียง DSP / 10-Band EQ และสวิตช์พวงมาลัยเดิม</p>
                         </div>
                     </div>
-                    <!-- 2. NA3615-TY -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="na3615-ty.png" alt="NA3615-TY" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -695,7 +683,6 @@
                             <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่น Toyota ขนาดหน้ากว้าง 200 มม. เสียบปลั๊กตรงรุ่น Plug & Play, จอสัมผัส Capacitive, รองรับ Bluetooth Hands-free & Audio Streaming, USB Media Player, Preset EQ, RCA Preout และรองรับการสั่งงานจากพวงมาลัยเดิม</p>
                         </div>
                     </div>
-                    <!-- 3. NA3615-GX -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="na3615-gx.png" alt="NA3615-GX" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -703,7 +690,6 @@
                             <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN ขนาดมาตรฐาน Universal หน้าจอ Capacitive 6.8 นิ้ว คมชัดสูง, กำลังขับ High Power 50W x 4, รองรับ Bluetooth, USB Audio/Video, FM/AM, ช่องต่อ Subwoofer Pre-out และรองรับกล้องมองหลัง</p>
                         </div>
                     </div>
-                    <!-- 4. NA3615-G9 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="na3615-g9.png" alt="NA3615-G9" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -711,7 +697,6 @@
                             <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียหน้าจอแขวนลอยขนาดใหญ่ 9 นิ้ว HD IPS Touchscreen, รองรับ Phone Mirroring/SmartLink, Bluetooth 4.2, 13-Band Graphic EQ, USB 2 ช่อง, ช่องต่อ RCA Pre-out และรองรับกล้องถอยหลัง AHD ความละเอียดสูง</p>
                         </div>
                     </div>
-                    <!-- 5. NA3615-W7 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="na3615-w7.png" alt="NA3615-W7" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -737,7 +722,6 @@
                 </div>
                 
                 <div class="flex flex-col space-y-6">
-                    <!-- 1. XAV-9500ES -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-9500es.png" alt="XAV-9500ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -745,7 +729,6 @@
                             <p class="text-gray-400 text-xs mt-1">เรือธง Mobile ES Series จอลอย HD Capacitive 10.1 นิ้ว (1280x720), ชิป ESS DAC 32-bit ประมวลผลระดับออดิโอไฟล์, Hi-Res Audio Wireless (LDAC), Wireless Apple CarPlay & Android Auto, Pre-out 5V แรงสูง 3 ชุด, เพาเวอร์แอมป์ Class D ในตัว</p>
                         </div>
                     </div>
-                    <!-- 2. XAV-9000ES -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-9000es.png" alt="XAV-9000ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -753,7 +736,6 @@
                             <p class="text-gray-400 text-xs mt-1">รุ่นพรีเมียม 2-DIN Mobile ES หน้าจอ Flush-mount Capacitive HD 6.75 นิ้ว คมชัดสูง, ESS DAC 32-bit Hi-Res Audio, Wireless Apple CarPlay & Android Auto, DSP Time Alignment ละเอียดแม่นยำ, Pre-out 5V RCA 3 ชุด</p>
                         </div>
                     </div>
-                    <!-- 3. XAV-AX8500 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-ax8500.png" alt="XAV-AX8500" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -761,7 +743,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอย HD ขนาด 10.1 นิ้ว ปรับระดับได้ 3 ทิศทาง (Tilt, Depth, Height), รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input สำหรับสตรีมวิดีโอ, DSP 14-Band EQ, Pre-out 5V RCA 3 ชุด</p>
                         </div>
                     </div>
-                    <!-- 4. XAV-AX6000 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-ax6000.png" alt="XAV-AX6000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -769,7 +750,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอไร้ขอบ Capacitive ขนาด 6.95 นิ้ว Sleek Design, รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input, Pre-out 5V แรงสูง 3 ชุด, ระบบ Quick Wake-Up บูตเครื่องรวดเร็วทันใจ</p>
                         </div>
                     </div>
-                    <!-- 5. XAV-AX4000 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-ax4000.png" alt="XAV-AX4000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -777,7 +757,6 @@
                             <p class="text-gray-400 text-xs mt-1">หน้าจอสัมผัสขนาด 6.95 นิ้ว แบบลดแสงสะท้อน (Anti-Glare Touchscreen), Wireless Apple CarPlay & Android Auto, Bluetooth สตรีมมิ่งไฟล์คุณภาพสูง LDAC, DSP 14-Band EQ & Time Alignment, Pre-out 2V 3 ชุด</p>
                         </div>
                     </div>
-                    <!-- 6. XAV-AX3200 -->
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
                         <img src="xav-ax3200.png" alt="XAV-AX3200" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
@@ -861,7 +840,6 @@
                     </h3>
                     <p class="text-gray-400 text-sm mb-6">ทดลองปรับระดับความดังจำลอง (Simulation) และประเมินเวลาฟังปลอดภัยตามมาตรฐาน OSHA</p>
 
-                    <!-- เครื่องวัดแบบจำลอง ( Simulation dB Meter ) -->
                     <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 text-center mb-6">
                         <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
                         <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
@@ -1027,7 +1005,7 @@
                 <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-8 border-b border-gray-800 pb-6">
                     <div>
                         <h2 class="text-3xl font-bold text-white"><i class="fas fa-user-shield text-yellow-500 mr-2"></i> ระบบจัดการหลังบ้าน (Admin Panel)</h2>
-                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PR CAR AUDIO (ระบบจะออกจากระบบอัตโนมัติหากเกิน 45 นาที)</p>
+                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PLFR CAR AUDIO (ระบบจะออกจากระบบอัตโนมัติหากเกิน 45 นาที)</p>
                     </div>
                     <button onclick="logoutAdmin()" class="bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white px-4 py-2 rounded-xl text-sm transition self-start md:self-auto">
                         ออกจากระบบ
@@ -1076,16 +1054,36 @@
         }
 
         // Admin Auth Credentials & Timeout Config (45 นาที)
-        const ADMIN_USER = "admin";
-        const ADMIN_PASS = "prcar1234";
+        const ADMIN_USER = "plfrcaraudio";
+        const ADMIN_PASS = "Plfraudio6955";
         const AUTO_LOGOUT_MS = 45 * 60 * 1000;
         let logoutTimer = null;
 
+        function clearLoginInputs() {
+            const u = document.getElementById('adminUsername');
+            const p = document.getElementById('adminPassword');
+            if (u) u.value = '';
+            if (p) p.value = '';
+        }
+
+        // ฟังก์ชันสำหรับล้างค่าช่องกรอกข้อมูลจองคิวให้เป็นค่าว่างทันที
+        function clearBookingInputs() {
+            const bForm = document.getElementById('bookingForm');
+            if (bForm) {
+                bForm.reset();
+            }
+        }
+
         function openLoginModal() {
+            clearLoginInputs();
+            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อเปิด Modal
+            document.getElementById('loginError').classList.add('hidden');
             document.getElementById('adminModal').classList.remove('hidden');
         }
 
         function closeLoginModal() {
+            clearLoginInputs();
+            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อปิด Modal
             document.getElementById('adminModal').classList.add('hidden');
             document.getElementById('loginError').classList.add('hidden');
         }
@@ -1098,6 +1096,7 @@
             if (u === ADMIN_USER && p === ADMIN_PASS) {
                 sessionStorage.setItem('isAdminLoggedIn', 'true');
                 sessionStorage.setItem('adminLoginTime', Date.now().toString());
+                clearLoginInputs();
                 closeLoginModal();
                 updateAdminUI();
                 switchPage('admin');
@@ -1128,6 +1127,7 @@
         function performAutoLogout() {
             sessionStorage.removeItem('isAdminLoggedIn');
             sessionStorage.removeItem('adminLoginTime');
+            clearLoginInputs();
             if (logoutTimer) clearTimeout(logoutTimer);
             updateAdminUI();
             switchPage('home');
@@ -1137,6 +1137,7 @@
         function logoutAdmin() {
             sessionStorage.removeItem('isAdminLoggedIn');
             sessionStorage.removeItem('adminLoginTime');
+            clearLoginInputs();
             if (logoutTimer) clearTimeout(logoutTimer);
             updateAdminUI();
             switchPage('home');
@@ -1179,6 +1180,7 @@
         }
 
         function switchPage(pageName) {
+            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อมีการสลับหน้า
             if (isPlaying) { stopAudio(); }
 
             if (pageName === 'admin' && !checkAdminSession()) {
@@ -1454,7 +1456,7 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
             .then(response => {
                 alert('🎉 บันทึกข้อมูลสำเร็จ! ข้อมูลถูกบันทิกลงระบบ Cloud เรียบร้อยแล้ว');
-                form.reset();
+                clearBookingInputs();
                 isSubmitting = false;
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
@@ -1468,6 +1470,8 @@
         });
 
         window.onload = function() {
+            clearLoginInputs();
+            clearBookingInputs();
             updateAdminUI();
         };
     </script>
