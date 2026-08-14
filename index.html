@@ -62,7 +62,6 @@
                     <button id="nav-product" onclick="switchPage('product')" class="text-gray-300 font-medium hover:text-brand transition">Product</button>
                     <button id="nav-frequency" onclick="switchPage('frequency')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-wave-square text-xs mr-1"></i>ทดสอบคลื่นเสียง & Visualizer</button>
                     <button id="nav-calculator" onclick="switchPage('calculator')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-calculator text-xs mr-1"></i>คำนวณสเปก</button>
-                    <button id="nav-booking" onclick="switchPage('booking')" class="text-gray-300 font-medium hover:text-brand transition">จองคิวติดตั้ง</button>
                     <button id="nav-admin" onclick="checkAdminPage()" class="text-yellow-500 font-medium hover:text-yellow-400 transition hidden"><i class="fas fa-user-shield text-xs mr-1"></i>แผงควบคุมแอดมิน</button>
                 </div>
                 
@@ -74,7 +73,7 @@
                         <i class="fas fa-sign-out-alt mr-1.5"></i> ออกจากระบบ
                     </button>
                     <button onclick="switchPage('booking')" class="bg-brand hover:bg-red-700 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-red-900/50">
-                        จองคิวทันที
+                        จองคิวติดตั้งทันที
                     </button>
                 </div>
 
@@ -93,7 +92,6 @@
             <button onclick="switchPage('product'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2">Product</button>
             <button onclick="switchPage('frequency'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2"><i class="fas fa-wave-square text-xs mr-2"></i>ทดสอบคลื่นเสียง & Visualizer</button>
             <button onclick="switchPage('calculator'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2"><i class="fas fa-calculator text-xs mr-2"></i>คำนวณสเปก</button>
-            <button onclick="switchPage('booking'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2">จองคิวติดตั้ง</button>
             <button id="nav-admin-mobile" onclick="checkAdminPage(); toggleMobileMenu();" class="block w-full text-left text-yellow-500 font-medium py-2 hidden"><i class="fas fa-user-shield text-xs mr-2"></i>แผงควบคุมแอดมิน</button>
             
             <div class="pt-4 border-t border-gray-800 flex flex-col space-y-3">
@@ -104,7 +102,7 @@
                     <i class="fas fa-sign-out-alt mr-2"></i> ออกจากระบบ
                 </button>
                 <button onclick="switchPage('booking'); toggleMobileMenu();" class="bg-brand hover:bg-red-700 text-white w-full py-3 rounded-full font-medium text-center shadow-lg">
-                    จองคิวทันที
+                    จองคิวติดตั้งทันที
                 </button>
             </div>
         </div>
@@ -247,8 +245,9 @@
                         <span class="text-xl md:text-2xl font-bold text-white">KENWOOD</span>
                         <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6">
-                        <span class="text-xl md:text-2xl font-bold text-gray-300">NAKAMICHI</span>
+                    <div onclick="switchPage('nakamichi-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
+                        <span class="text-xl md:text-2xl font-bold text-white">NAKAMICHI</span>
+                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
                     </div>
                     <div onclick="switchPage('pioneer-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
                         <span class="text-xl md:text-2xl font-bold text-white">PIONEER</span>
@@ -392,7 +391,7 @@
                         <img src="ax809.png" alt="AX809" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
                         <div>
                             <h3 class="text-2xl font-bold text-white">AX809</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอสมาร์ตมัลติมีเดียประมวลผลรวดเร็ว แสดงผลคมชัด ปรับแต่งระบบเสียงได้ละเอียดสมบูรณ์แบบ</p>
+                            <p class="text-gray-400 text-xs mt-1">หน้าจอสมาร์ตมัลติมีเดียประมวลผลรวดเร็ว แสดงผลคมชัด ปรับแต่งระบบเสียงได้รายละเอียดสมบูรณ์แบบ</p>
                         </div>
                     </div>
                     <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
@@ -442,6 +441,64 @@
                         <div>
                             <h3 class="text-2xl font-bold text-white">KW-M590BT</h3>
                             <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touch คมชัดสูง, รองรับ Apple CarPlay & Android Auto ผ่านสาย USB, USB Mirroring สะท้อนหน้าจอสมาร์ทโฟน, Gesture Touch Control สั่งงานด้วยนิ้วปัด, USB ชาร์จไว 2.1A, Learning Steering Remote ในตัว</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2.6 หน้า Nakamichi -->
+    <div id="page-nakamichi-headunit" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
+                </button>
+                <div class="mb-12 border-b border-gray-800 pb-6">
+                    <h2 class="text-4xl font-bold text-white">NAKAMICHI</h2>
+                    <p class="text-gray-400 text-sm mt-1">ตำนานแบรนด์เครื่องเสียงชั้นนำ Nakamichi NA3615 Series ถ่ายทอดพลังเสียงคมชัดและระบบมัลติมีเดียที่สมบูรณ์แบบ</p>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- 1. NA3615-VW -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="na3615-vw.png" alt="NA3615-VW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">NA3615-VW</h3>
+                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่นสำหรับ Volkswagen หน้าจอ Capacitive Touchscreen ขนาด 7 นิ้ว รองรับระบบ CANBUS โชว์ข้อมูลรถเดิม, Plug & Play ไม่ต้องตัดต่อสาย, Bluetooth, USB, MirrorLink, ระบบเสียง DSP / 10-Band EQ และสวิตช์พวงมาลัยเดิม</p>
+                        </div>
+                    </div>
+                    <!-- 2. NA3615-TY -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="na3615-ty.png" alt="NA3615-TY" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">NA3615-TY</h3>
+                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่น Toyota ขนาดหน้ากว้าง 200 มม. เสียบปลั๊กตรงรุ่น Plug & Play, จอสัมผัส Capacitive, รองรับ Bluetooth Hands-free & Audio Streaming, USB Media Player, Preset EQ, RCA Preout และรองรับการสั่งงานจากพวงมาลัยเดิม</p>
+                        </div>
+                    </div>
+                    <!-- 3. NA3615-GX -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="na3615-gx.png" alt="NA3615-GX" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">NA3615-GX</h3>
+                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN ขนาดมาตรฐาน Universal หน้าจอ Capacitive 6.8 นิ้ว คมชัดสูง, กำลังขับ High Power 50W x 4, รองรับ Bluetooth, USB Audio/Video, FM/AM, ช่องต่อ Subwoofer Pre-out และรองรับกล้องมองหลัง</p>
+                        </div>
+                    </div>
+                    <!-- 4. NA3615-G9 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="na3615-g9.png" alt="NA3615-G9" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">NA3615-G9</h3>
+                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียหน้าจอแขวนลอยขนาดใหญ่ 9 นิ้ว HD IPS Touchscreen, รองรับ Phone Mirroring/SmartLink, Bluetooth 4.2, 13-Band Graphic EQ, USB 2 ช่อง, ช่องต่อ RCA Pre-out และรองรับกล้องถอยหลัง AHD ความละเอียดสูง</p>
+                        </div>
+                    </div>
+                    <!-- 5. NA3615-W7 -->
+                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
+                        <img src="na3615-w7.png" alt="NA3615-W7" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">NA3615-W7</h3>
+                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN หน้าจอ 7 นิ้ว ดีไซน์ตัวเครื่องสั้น (Short-Body Chassis) ติดตั้งง่ายระบายความร้อนดี, จอ Capacitive Touchscreen, รองรับ Bluetooth, USB/AUX, 10-Band EQ, กำลังขับ 50W x 4 และรองรับกล้องมองหลัง</p>
                         </div>
                     </div>
                 </div>
@@ -893,7 +950,7 @@
             const targetPage = document.getElementById('page-' + pageName);
             if (targetPage) targetPage.classList.remove('hidden');
 
-            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-booking', 'nav-admin'];
+            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-admin'];
             navIds.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) {
@@ -903,7 +960,7 @@
             });
 
             let activeNav = pageName;
-            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit'].includes(pageName)) {
+            if (['brands-headunit', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit'].includes(pageName)) {
                 activeNav = 'product';
             }
 
