@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLFR CAR AUDIO - Science & Sound Tech</title>
+    <title>ECA - มอบประสบการณ์การใช้ Chatbot ด้วย AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,11 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: '#E63946', dark: '#111111' }
+                    colors: { 
+                        messenger: '#0084FF', 
+                        mint: '#2DD4BF',
+                        dark: '#1f2937' 
+                    }
                 }
             }
         }
@@ -21,65 +25,82 @@
     <style>
         body { 
             font-family: 'Prompt', sans-serif; 
-            background-color: #0a0a0a; 
-            color: #e5e7eb;
-            background-image: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), url('bgweb.jpg');
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+            color: #1f2937;
+            min-height: 100vh;
         }
         .glass-effect {
-            background: rgba(17, 17, 17, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         .card-effect {
-            background: rgba(26, 26, 26, 0.85); backdrop-filter: blur(8px); border: 1px solid #333; transition: transform 0.3s ease, border-color 0.3s ease;
+            background: #ffffff; 
+            border: 1px solid #e5e7eb; 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
         .card-effect:hover {
-            transform: translateY(-5px); border-color: #E63946;
+            transform: translateY(-5px); 
+            border-color: #2DD4BF;
+            box-shadow: 0 20px 25px -5px rgba(45, 212, 191, 0.15);
         }
         .fade-in {
-            animation: fadeIn 0.4s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #0084FF, #2DD4BF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #2DD4BF;
+        }
+        .btn-primary {
+            background-color: #0084FF;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2DD4BF;
+            box-shadow: 0 10px 15px -3px rgba(45, 212, 191, 0.3);
         }
     </style>
 </head>
-<body class="selection:bg-brand selection:text-white min-h-screen">
+<body class="selection:bg-mint selection:text-white antialiased">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-effect">
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
-                    <span class="text-2xl md:text-3xl font-bold text-white tracking-wider">PLFR CAR<span class="text-brand">AUDIO</span></span>
+                    <img src="ECA.png" alt="ECA Logo" class="w-10 h-10 object-contain mr-3 rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/40'">
+                    <span class="text-2xl font-bold text-gray-800 tracking-wide">ECA</span>
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-6 lg:space-x-8">
-                    <button id="nav-home" onclick="switchPage('home')" class="text-brand font-medium hover:text-brand transition">หน้าหลัก</button>
-                    <button id="nav-product" onclick="switchPage('product')" class="text-gray-300 font-medium hover:text-brand transition">Product</button>
-                    <button id="nav-frequency" onclick="switchPage('frequency')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-wave-square text-xs mr-1"></i>ทดสอบคลื่นเสียง & Visualizer</button>
-                    <button id="nav-calculator" onclick="switchPage('calculator')" class="text-gray-300 font-medium hover:text-brand transition"><i class="fas fa-calculator text-xs mr-1"></i>คำนวณสเปก</button>
-                    <button id="nav-admin" onclick="checkAdminPage()" class="text-yellow-500 font-medium hover:text-yellow-400 transition hidden"><i class="fas fa-user-shield text-xs mr-1"></i>แผงควบคุมแอดมิน</button>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="switchPage('chatbot')" class="nav-link text-gray-600 font-medium text-lg">Chatbot ?</button>
+                    <button onclick="switchPage('customers')" class="nav-link text-gray-600 font-medium text-lg">ลูกค้า</button>
+                    <button onclick="switchPage('about')" class="nav-link text-gray-600 font-medium text-lg">เกี่ยวกับเรา</button>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="openLoginModal()" id="login-btn-nav" class="text-gray-400 hover:text-white transition text-sm flex items-center">
-                        <i class="fas fa-lock mr-1.5"></i> Login For Admin
-                    </button>
-                    <button onclick="logoutAdmin()" id="logout-btn-nav" class="text-red-400 hover:text-red-300 transition text-sm hidden flex items-center">
-                        <i class="fas fa-sign-out-alt mr-1.5"></i> ออกจากระบบ
-                    </button>
-                    <button onclick="switchPage('booking')" class="bg-brand hover:bg-red-700 text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-red-900/50">
-                        จองคิวติดตั้งทันที
+                    <button onclick="switchPage('contact')" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium shadow-lg">
+                        ติดต่อเรา
                     </button>
                 </div>
 
                 <!-- Mobile Hamburger Button -->
                 <div class="flex md:hidden items-center">
-                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white text-2xl focus:outline-none p-2">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-mint text-2xl focus:outline-none p-2 transition">
                         <i class="fas fa-bars" id="mobile-menu-icon"></i>
                     </button>
                 </div>
@@ -87,77 +108,41 @@
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3 fade-in">
-            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left text-brand font-medium py-2">หน้าหลัก</button>
-            <button onclick="switchPage('product'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2">Product</button>
-            <button onclick="switchPage('frequency'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2"><i class="fas fa-wave-square text-xs mr-2"></i>ทดสอบคลื่นเสียง & Visualizer</button>
-            <button onclick="switchPage('calculator'); toggleMobileMenu();" class="block w-full text-left text-gray-300 hover:text-brand font-medium py-2"><i class="fas fa-calculator text-xs mr-2"></i>คำนวณสเปก</button>
-            <button id="nav-admin-mobile" onclick="checkAdminPage(); toggleMobileMenu();" class="block w-full text-left text-yellow-500 font-medium py-2 hidden"><i class="fas fa-user-shield text-xs mr-2"></i>แผงควบคุมแอดมิน</button>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left text-gray-700 hover:text-mint font-medium py-3 border-b border-gray-100">หน้าหลัก</button>
+            <button onclick="switchPage('chatbot'); toggleMobileMenu();" class="block w-full text-left text-gray-700 hover:text-mint font-medium py-3 border-b border-gray-100">Chatbot ?</button>
+            <button onclick="switchPage('customers'); toggleMobileMenu();" class="block w-full text-left text-gray-700 hover:text-mint font-medium py-3 border-b border-gray-100">ลูกค้า</button>
+            <button onclick="switchPage('about'); toggleMobileMenu();" class="block w-full text-left text-gray-700 hover:text-mint font-medium py-3 border-b border-gray-100">เกี่ยวกับเรา</button>
             
-            <div class="pt-4 border-t border-gray-800 flex flex-col space-y-3">
-                <button onclick="openLoginModal(); toggleMobileMenu();" id="login-btn-mobile" class="text-gray-400 hover:text-white text-sm flex items-center py-2">
-                    <i class="fas fa-lock mr-2"></i> Login For Admin
-                </button>
-                <button onclick="logoutAdmin(); toggleMobileMenu();" id="logout-btn-mobile" class="text-red-400 hover:text-red-300 text-sm hidden flex items-center py-2">
-                    <i class="fas fa-sign-out-alt mr-2"></i> ออกจากระบบ
-                </button>
-                <button onclick="switchPage('booking'); toggleMobileMenu();" class="bg-brand hover:bg-red-700 text-white w-full py-3 rounded-full font-medium text-center shadow-lg">
-                    จองคิวติดตั้งทันที
+            <div class="pt-4 flex flex-col space-y-3">
+                <button onclick="switchPage('contact'); toggleMobileMenu();" class="btn-primary text-white w-full py-3 rounded-xl font-medium text-center shadow-lg">
+                    ติดต่อเรา
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Modal เข้าสู่ระบบ Admin -->
-    <div id="adminModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="card-effect rounded-3xl p-8 max-w-md w-full border-brand/40 shadow-2xl relative">
-            <button onclick="closeLoginModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-brand/20 text-brand rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white">Login For Admin</h3>
-                <p class="text-gray-400 text-xs mt-1">กรอกรหัสผ่านเพื่อเข้าถึงระบบจัดการหลังบ้าน (เซสชัน 45 นาที)</p>
-            </div>
-            
-            <form onsubmit="handleLogin(event)" class="space-y-4" autocomplete="off">
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">ชื่อผู้ใช้ (Username)</label>
-                    <input type="text" id="adminUsername" required autocomplete="off" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">รหัสผ่าน (Password)</label>
-                    <input type="password" id="adminPassword" required autocomplete="new-password" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                </div>
-                <div id="loginError" class="text-red-500 text-xs hidden text-center">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</div>
-                <button type="submit" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3 rounded-xl transition mt-2">
-                    เข้าสู่ระบบ
-                </button>
-            </form>
-        </div>
-    </div>
-
     <!-- 1. หน้าหลัก (Home) -->
     <div id="page-home" class="page-section fade-in">
-        <section class="min-h-screen flex items-center pt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="max-w-3xl">
-                    <span class="inline-block bg-brand/20 text-brand border border-brand/40 px-4 py-1 rounded-full text-sm font-semibold mb-4">Science & Audio Physics Exhibition</span>
-                    <h1 class="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
-                        ปลดล็อกมิติเสียง<br>
-                        <span class="text-brand">ระดับโลก</span> ให้รถคุณ
+        <section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+            <div class="absolute top-1/4 left-10 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div class="absolute top-1/3 right-10 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-6">
+                        มอบประสบการณ์การใช้<br>
+                        <span class="text-gradient">Chatbot</span> ด้วย AI
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl font-light">
-                        สัมผัสความสุนทรีย์ของเครื่องเสียงติดรถยนต์ ร่วมทดสอบคลื่นเสียง Real-time Visualizer และระบบประมวลผล Cloud
+                    <p class="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto font-light">
+                        โซลูชันศูนย์บริการลูกค้า AI หลายช่องทาง ยกระดับการสนทนาของลูกค้าทุกครั้งเพื่อขับเคลื่อนการเติบโตให้กับธุรกิจของคุณ
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="switchPage('product')" class="bg-brand hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition">
-                            ดู Product ทั้งหมด
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="switchPage('contact')" class="btn-primary text-white w-full sm:w-auto px-10 py-3.5 rounded-full font-medium text-lg shadow-xl shadow-blue-500/30">
+                            ติดต่อเรา
                         </button>
-                        <button onclick="switchPage('frequency')" class="bg-transparent border border-white text-white hover:bg-white hover:text-dark px-8 py-3 rounded-full font-medium transition">
-                            ทดลองคลื่นเสียง (Sound Check)
+                        <button onclick="switchPage('chatbot')" class="bg-white border-2 border-gray-300 text-gray-700 hover:border-mint hover:text-mint w-full sm:w-auto px-10 py-3.5 rounded-full font-medium text-lg transition-colors duration-300">
+                            ดูข้อมูลเพิ่มเติม
                         </button>
                     </div>
                 </div>
@@ -165,1315 +150,113 @@
         </section>
     </div>
 
-    <!-- 2. หน้า Product -->
-    <div id="page-product" class="page-section hidden fade-in">
+    <!-- 2. หน้า Chatbot ? -->
+    <div id="page-chatbot" class="page-section hidden fade-in">
         <section class="pt-32 pb-24 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">OUR <span class="text-brand">PRODUCTS</span></h2>
-                    <p class="text-gray-400 max-w-3xl mx-auto">รายชื่ออุปกรณ์เครื่องเสียงรถยนต์ แยกตามหมวดหมู่ชิ้นส่วนและแบรนด์ดังระดับโลก</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Chatbot คืออะไร?</h2>
+                    <p class="text-gray-500 max-w-3xl mx-auto text-lg">ผู้ช่วยเสมือนจริงอัจฉริยะที่พร้อมดูแลลูกค้าของคุณตลอด 24 ชั่วโมง</p>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 1. เครื่องเล่นและหน้าจอ -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-headunit')">
-                        <i class="fas fa-radio text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                            1. เครื่องเล่นและหน้าจอ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-                        </h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(Head Units / Media Receivers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นเครื่องเล่น ควบคุมระบบทั้งหมด เล่นเพลง ปรับแต่งเสียง</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Alpine, JVC, Kenwood, Nakamichi, Pioneer, Sony</p>
-                        </div>
-                    </div>
-
-                    <!-- 2. ลำโพง -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-speaker')">
-                        <i class="fas fa-volume-up text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                            2. ลำโพง <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-                        </h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(Speakers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นลำโพง ถ่ายทอดเสียงกลาง แหลม และย่านความถี่ต่างๆ แยกย่อยเป็นลำโพงแยกชิ้น และแกนร่วม</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Focal, Audison, Alpine, JL Audio, Rockford Fosgate, Kicker, Ground Zero, Helix</p>
-                        </div>
-                    </div>
-
-                    <!-- 3. เพาเวอร์แอมป์ -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-poweramp')">
-                        <i class="fas fa-bolt text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                            3. เพาเวอร์แอมป์ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-                        </h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(Power Amplifiers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นเพาเวอร์แอมป์ ขยายสัญญาณและเพิ่มกำลังขับให้เสียงดังและทรงพลังขึ้น</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Focal, Audison, Alpine, JL Audio, Rockford Fosgate, Kicker, Ground Zero, Helix</p>
-                        </div>
-                    </div>
-
-                    <!-- 4. ซับวูฟเฟอร์ -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="switchPage('brands-subwoofer')">
-                        <i class="fas fa-compact-disc text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                            4. ซับวูฟเฟอร์ <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-                        </h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(Subwoofers)</h4>
-                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่นซับวูฟเฟอร์ ผลิตเสียงเบสต่ำและความลึกของเสียงเพลง</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">JL Audio , Rockford Fosgate , Kicker , Helix , Ground Zero , Alpine , Status</p>
-                        </div>
-                    </div>
-
-                    <!-- 5. หน่วยประมวลผลเสียง -->
-                    <div class="card-effect rounded-2xl p-8 relative overflow-hidden md:col-span-2 lg:col-span-1 cursor-pointer" onclick="switchPage('brands-dsp')">
-                        <i class="fas fa-sliders-h text-brand text-4xl mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
-                            5. หน่วยประมวลผลเสียง <i class="fas fa-chevron-right text-sm text-gray-500"></i>
-                        </h3>
-                        <h4 class="text-brand text-sm font-semibold mb-3">(DSP)</h4>
-                        <p class="text-gray-400 text-sm mb-6">คลิกเพื่อดูแบรนด์และรุ่น DSP ปรับจูนคลื่นความถี่แยกอิสระแต่ละลำโพง ตั้งค่ามิติเวทีเสียง</p>
-                        <div class="pt-4 border-t border-gray-800">
-                            <p class="text-white text-sm font-medium"><i class="fas fa-star text-yellow-500 mr-2"></i>แบรนด์ดังระดับโลก:</p>
-                            <p class="text-gray-400 text-sm mt-2">Audison, Helix, Alpine, Ground Zero, Hertz, Brax</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.1 หน้า Brands เครื่องเล่น -->
-    <div id="page-brands-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
-                </button>
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์เครื่องเล่นและหน้าจอ</h2>
-                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรุ่นสินค้า</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <div onclick="switchPage('alpine-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                    <div onclick="switchPage('jvc-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">JVC</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                    <div onclick="switchPage('kenwood-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">KENWOOD</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                    <div onclick="switchPage('nakamichi-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">NAKAMICHI</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                    <div onclick="switchPage('pioneer-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">PIONEER</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                    <div onclick="switchPage('sony-headunit')" class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">SONY</span>
-                        <span class="text-xs text-brand mt-2">คลิกเพื่อดูสินค้า</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.1.1 หน้า Brands ลำโพง -->
-    <div id="page-brands-speaker" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
-                </button>
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์ลำโพง</h2>
-                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดลำโพงระดับโลก</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">FOCAL</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
-                        <span class="text-xs text-brand mt-2">ลำโพง</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.1.2 หน้า Brands เพาเวอร์แอมป์ -->
-    <div id="page-brands-poweramp" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
-                </button>
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์เพาเวอร์แอมป์</h2>
-                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดเพาเวอร์แอมป์ระดับโลก</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">FOCAL</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
-                        <span class="text-xs text-brand mt-2">เพาเวอร์แอมป์</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.1.3 หน้า Brands ซับวูฟเฟอร์ -->
-    <div id="page-brands-subwoofer" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
-                </button>
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์ซับวูฟเฟอร์</h2>
-                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดซับวูฟเฟอร์ระดับโลก</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">JL AUDIO</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">ROCKFORD FOSGATE</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">KICKER</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">STATUS</span>
-                        <span class="text-xs text-brand mt-2">ซับวูฟเฟอร์</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.1.4 หน้า Brands DSP -->
-    <div id="page-brands-dsp" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('product')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหมวดหมู่สินค้า
-                </button>
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">แบรนด์หน่วยประมวลผลเสียง (DSP)</h2>
-                    <p class="text-gray-400 mt-2">เลือกแบรนด์ที่คุณสนใจเพื่อดูรายละเอียดหน่วยประมวลผลเสียงระดับโลก</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">AUDISON</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">HELIX</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">ALPINE</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-lg md:text-xl font-bold text-white text-center">GROUND ZERO</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">HERTZ</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                    <div class="card-effect aspect-square flex flex-col items-center justify-center rounded-2xl cursor-pointer p-6 border-gray-600 hover:border-brand">
-                        <span class="text-xl md:text-2xl font-bold text-white">BRAX</span>
-                        <span class="text-xs text-brand mt-2">DSP</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.2 หน้า Kenwood -->
-    <div id="page-kenwood-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">KENWOOD</h2>
-                    <p class="text-gray-400 text-sm mt-1">เครื่องเล่นมัลติมีเดียและดีเอสพีระดับพรีเมียม ถ่ายทอดน้ำเสียงสมจริงเสมือนอยู่ในสตูดิโอ</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="dmx9724xs.png" alt="DMX9724XS" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX9724XS</h3>
-                            <p class="text-gray-400 text-xs mt-1">รุ่นเรือธง จอ HD 10.1 นิ้ว Optical Bonded สู้แสงสะท้อน ปรับได้ 4 ทิศทาง, Hi-Res Audio Wireless (LDAC), ช่อง Optical Out, Pre-out 5V แรงสูง RCA 3 ชุด, รองรับกล้อง HD สูงสุด 4 ตัว</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="dmx8521s.png" alt="DMX8521S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX8521S</h3>
-                            <p class="text-gray-400 text-xs mt-1">รุ่นพรีเมียม จอ Capacitive 6.8 นิ้ว ดีไซน์ตัวเครื่องสั้น (Short Chassis 85mm), Hi-Res Audio Wireless (LDAC), ช่องต่อ HDMI Input, Pre-out 5V RCA 3 ชุด, 13-Band EQ & 3-Way Crossover</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="dmx7522s.png" alt="DMX7522S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMX7522S</h3>
-                            <p class="text-gray-400 text-xs mt-1">รุ่นมาตรฐานจอ 6.8 นิ้ว Short Chassis, รองรับ Wireless Apple CarPlay & Android Auto, HDMI Input, USB Mirroring, 13-Band EQ, Time Alignment, Pre-out 5V RCA 3 ชุด</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.3 หน้า Pioneer -->
-    <div id="page-pioneer-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">PIONEER</h2>
-                    <p class="text-gray-400 text-sm mt-1">ผู้นำความบันเทิงในรถยนต์ นวัตกรรมความคมชัด และชิปประมวลผลเสียงอันทรงพลัง</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="zf9650bt.png" alt="DMH-ZF9650BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMH-ZF9650BT</h3>
-                            <p class="text-gray-400 text-xs mt-1">รุ่นท็อปสุด จอลอย 10.1 นิ้ว HD Capacitive (1DIN), แถบไฟ Luminous Bar เปลี่ยนสีและซิงค์ตามจังหวะเพลง/ระบบนำทาง, HDMI Input, 3-Way Network Mode, RCA 3 ชุด (4V)</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="zf9350bt.png" alt="DMH-ZF9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMH-ZF9350BT</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 9 นิ้ว HD Capacitive, ชิปประมวลผล 52-bit Triple Core DSP พร้อม Master Sound Reviver, Wireless Apple CarPlay/Android Auto, Hi-Res Audio, RCA 3 ชุด (4V)</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="zs9350bt.png" alt="DMH-ZS9350BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMH-ZS9350BT</h3>
-                            <p class="text-gray-400 text-xs mt-1">จอขนาด 9 นิ้ว แบบแยกชิ้น (Modular Design) ติดตั้งง่ายเข้ากับคอนโซลเฉพาะรุ่น, ชิป 52-bit Triple Core DSP, Hi-Res Audio, 3-Way Crossover, RCA 3 ชุด (4V)</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="zf8750bt.png" alt="DMH-ZF8750BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">DMH-ZF8750BT</h3>
-                            <p class="text-gray-400 text-xs mt-1">จอ 9 นิ้ว WSVGA Flexi-mount ปรับระดับองศาอิสระ, รองรับ WebLink Cast Mirroring และแอป PxLink, Auto EQ & Time Alignment, RCA 3 ชุด (4V)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.4 หน้า Alpine -->
-    <div id="page-alpine-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">ALPINE</h2>
-                    <p class="text-gray-400 text-sm mt-1">เครื่องเล่นและหน้าจอระดับ Hi-Res Audio มาตรฐานระดับโลกจากญี่ปุ่น</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="f511e.png" alt="iLX-F511E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">iLX-F511E (Halo11)</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 11 นิ้ว ความละเอียดระดับ HD รองรับ Wireless Apple CarPlay, Android Auto และระบบเสียง Hi-Res Audio</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="f509e.png" alt="iLX-F509E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">iLX-F509E (Halo9)</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอยขนาด 9 นิ้ว ปรับระดับมุมมองได้ รองรับไฟล์เพลงคุณภาพสูง Hi-Res Audio และการเชื่อมต่อไร้สาย</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="w770e.png" alt="iLX-W770E" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">iLX-W770E</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 2-DIN ขนาด 7 นิ้ว ดีไซน์บางเฉียบ ถ่ายทอดมิติเสียงคมชัด รองรับ Apple CarPlay และ Android Auto</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="ax809.png" alt="AX809" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">AX809</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอสมาร์ตมัลติมีเดียประมวลผลรวดเร็ว แสดงผลคมชัด ปรับแต่งระบบเสียงได้รายละเอียดสมบูรณ์แบบ</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="aw409s.png" alt="AW409S" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">AW409S</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอระบบสัมผัสขนาด 9 นิ้ว รองรับฟังก์ชันมัลติมีเดียความบันเทิงในรถยนต์ครบครันและเสถียรภาพสูง</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.5 หน้า JVC -->
-    <div id="page-jvc-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">JVC</h2>
-                    <p class="text-gray-400 text-sm mt-1">เครื่องเล่นมัลติมีเดียและหน้าจอคุณภาพสูง ดีไซน์ล้ำสมัย รองรับการเชื่อมต่อไร้สายสมบูรณ์แบบ</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="m80aw.png" alt="KW-M80AW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">KW-M80AW</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอจอลอยขนาดใหญ่ 9 นิ้ว Capacitive Touch (SVGA High Resolution), รองรับ Apple CarPlay & Android Auto แบบไร้สาย (Wireless) และต่อสาย, Wireless Mirroring, 13-Band Graphic EQ, Preout 2 ชุด + Subwoofer (2.5V), ดีไซน์ตัวเครื่องสั้น (Short Chassis) ติดตั้งง่าย</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="m690bw.png" alt="KW-M690BW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">KW-M690BW</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touchscreen, รองรับ Apple CarPlay & Android Auto (Wireless / Wired), Wireless Mirroring, 13-Band EQ, Time Alignment ปรับมิติเสียงสมจริง, กำลังขับ 50W x 4, รองรับการต่อกล้องมองหลังเพื่อความปลอดภัย</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="m590bt.png" alt="KW-M590BT" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">KW-M590BT</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.8 นิ้ว WSVGA Capacitive Touch คมชัดสูง, รองรับ Apple CarPlay & Android Auto ผ่านสาย USB, USB Mirroring สะท้อนหน้าจอสมาร์ทโฟน, Gesture Touch Control สั่งงานด้วยนิ้วปัด, USB ชาร์จไว 2.1A, Learning Steering Remote ในตัว</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.6 หน้า Nakamichi -->
-    <div id="page-nakamichi-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">NAKAMICHI</h2>
-                    <p class="text-gray-400 text-sm mt-1">ตำนานแบรนด์เครื่องเสียงชั้นนำ Nakamichi NA3615 Series ถ่ายทอดพลังเสียงคมชัดและระบบมัลติมีเดียที่สมบูรณ์แบบ</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="na3615-vw.png" alt="NA3615-VW" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">NA3615-VW</h3>
-                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่นสำหรับ Volkswagen หน้าจอ Capacitive Touchscreen ขนาด 7 นิ้ว รองรับระบบ CANBUS โชว์ข้อมูลรถเดิม, Plug & Play ไม่ต้องตัดต่อสาย, Bluetooth, USB, MirrorLink, ระบบเสียง DSP / 10-Band EQ และสวิตช์พวงมาลัยเดิม</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="na3615-ty.png" alt="NA3615-TY" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">NA3615-TY</h3>
-                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียตรงรุ่น Toyota ขนาดหน้ากว้าง 200 มม. เสียบปลั๊กตรงรุ่น Plug & Play, จอสัมผัส Capacitive, รองรับ Bluetooth Hands-free & Audio Streaming, USB Media Player, Preset EQ, RCA Preout และรองรับการสั่งงานจากพวงมาลัยเดิม</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="na3615-gx.png" alt="NA3615-GX" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">NA3615-GX</h3>
-                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN ขนาดมาตรฐาน Universal หน้าจอ Capacitive 6.8 นิ้ว คมชัดสูง, กำลังขับ High Power 50W x 4, รองรับ Bluetooth, USB Audio/Video, FM/AM, ช่องต่อ Subwoofer Pre-out และรองรับกล้องมองหลัง</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="na3615-g9.png" alt="NA3615-G9" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">NA3615-G9</h3>
-                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่นมัลติมีเดียหน้าจอแขวนลอยขนาดใหญ่ 9 นิ้ว HD IPS Touchscreen, รองรับ Phone Mirroring/SmartLink, Bluetooth 4.2, 13-Band Graphic EQ, USB 2 ช่อง, ช่องต่อ RCA Pre-out และรองรับกล้องถอยหลัง AHD ความละเอียดสูง</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="na3615-w7.png" alt="NA3615-W7" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">NA3615-W7</h3>
-                            <p class="text-gray-400 text-xs mt-1">เครื่องเล่น 2-DIN หน้าจอ 7 นิ้ว ดีไซน์ตัวเครื่องสั้น (Short-Body Chassis) ติดตั้งง่ายระบายความร้อนดี, จอ Capacitive Touchscreen, รองรับ Bluetooth, USB/AUX, 10-Band EQ, กำลังขับ 50W x 4 และรองรับกล้องมองหลัง</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 2.7 หน้า Sony -->
-    <div id="page-sony-headunit" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button onclick="switchPage('brands-headunit')" class="mb-8 text-gray-400 hover:text-white transition flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> ย้อนกลับไปหน้าแบรนด์
-                </button>
-                <div class="mb-12 border-b border-gray-800 pb-6">
-                    <h2 class="text-4xl font-bold text-white">SONY</h2>
-                    <p class="text-gray-400 text-sm mt-1">สุดยอดนวัตกรรมเครื่องเสียงระดับ High-Resolution Mobile ES และหน้าจอสมาร์ตมัลติมีเดียระดับพรีเมียม</p>
-                </div>
-                
-                <div class="flex flex-col space-y-6">
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-9500es.png" alt="XAV-9500ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-9500ES</h3>
-                            <p class="text-gray-400 text-xs mt-1">เรือธง Mobile ES Series จอลอย HD Capacitive 10.1 นิ้ว (1280x720), ชิป ESS DAC 32-bit ประมวลผลระดับออดิโอไฟล์, Hi-Res Audio Wireless (LDAC), Wireless Apple CarPlay & Android Auto, Pre-out 5V แรงสูง 3 ชุด, เพาเวอร์แอมป์ Class D ในตัว</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-9000es.png" alt="XAV-9000ES" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-9000ES</h3>
-                            <p class="text-gray-400 text-xs mt-1">รุ่นพรีเมียม 2-DIN Mobile ES หน้าจอ Flush-mount Capacitive HD 6.75 นิ้ว คมชัดสูง, ESS DAC 32-bit Hi-Res Audio, Wireless Apple CarPlay & Android Auto, DSP Time Alignment ละเอียดแม่นยำ, Pre-out 5V RCA 3 ชุด</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-ax8500.png" alt="XAV-AX8500" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-AX8500</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอแขวนลอย HD ขนาด 10.1 นิ้ว ปรับระดับได้ 3 ทิศทาง (Tilt, Depth, Height), รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input สำหรับสตรีมวิดีโอ, DSP 14-Band EQ, Pre-out 5V RCA 3 ชุด</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-ax6000.png" alt="XAV-AX6000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-AX6000</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอไร้ขอบ Capacitive ขนาด 6.95 นิ้ว Sleek Design, รองรับ Wireless Apple CarPlay & Android Auto, ช่องต่อ HDMI Input, Pre-out 5V แรงสูง 3 ชุด, ระบบ Quick Wake-Up บูตเครื่องรวดเร็วทันใจ</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-ax4000.png" alt="XAV-AX4000" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-AX4000</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอสัมผัสขนาด 6.95 นิ้ว แบบลดแสงสะท้อน (Anti-Glare Touchscreen), Wireless Apple CarPlay & Android Auto, Bluetooth สตรีมมิ่งไฟล์คุณภาพสูง LDAC, DSP 14-Band EQ & Time Alignment, Pre-out 2V 3 ชุด</p>
-                        </div>
-                    </div>
-                    <div class="card-effect flex flex-col md:flex-row items-center p-6 rounded-2xl">
-                        <img src="xav-ax3200.png" alt="XAV-AX3200" class="w-48 h-auto object-contain mb-4 md:mb-0 md:mr-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">XAV-AX3200</h3>
-                            <p class="text-gray-400 text-xs mt-1">หน้าจอ 6.95 นิ้ว Anti-Glare, รองรับ Apple CarPlay & Android Auto ผ่านสาย USB, WebLink Cast สะท้อนหน้าจอสมาร์ตโฟน, A/V Input ช่องต่อสัญญาณภาพและเสียง, Dynamic Stage Organizer (DSO), Pre-out 2V 3 ชุด</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 3. หน้าทดสอบคลื่นเสียง + Real-time Oscilloscope Visualizer + Decibel Meter -->
-    <div id="page-frequency" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <span class="text-brand text-sm font-semibold tracking-wider uppercase">Audio Lab & Pre-Booking Sound Check</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-1">ห้องทดลองคลื่นเสียง & Visualizer</h2>
-                    <p class="text-gray-400 mt-3">ทดลองฟิสิกส์คลื่นเสียง ดูรูปคลื่นแบบ Real-time และประเมินความปลอดภัยของหูก่อนสั่งติดตั้ง</p>
-                </div>
-
-                <div class="card-effect rounded-3xl p-6 md:p-8 border-brand/30 shadow-2xl mb-12">
-                    <div class="bg-black/80 rounded-2xl p-4 border border-gray-800 mb-6 relative overflow-hidden">
-                        <div class="text-xs text-gray-400 mb-2 flex justify-between items-center">
-                            <span><i class="fas fa-chart-line text-brand mr-1"></i> Real-time Oscilloscope (รูปคลื่นเสียง)</span>
-                            <span id="wave-status" class="text-gray-500">สถานะ: ปิดเสียง</span>
-                        </div>
-                        <canvas id="oscilloscope" class="w-full h-36 rounded-lg bg-gray-950 border border-gray-800/80"></canvas>
-                    </div>
-
-                    <div class="bg-gray-900/90 rounded-2xl p-6 text-center mb-8 border border-gray-800">
-                        <div class="text-gray-400 text-sm mb-1">ความถี่คลื่นเสียงปัจจุบัน (Frequency)</div>
-                        <div class="text-5xl md:text-6xl font-extrabold text-brand tracking-tight my-2">
-                            <span id="freq-display">440</span> <span class="text-2xl font-normal text-gray-400">Hz</span>
-                        </div>
-                        <div id="freq-type" class="text-lg font-medium text-yellow-400 mt-2">ย่านเสียงกลาง (Mid-range / Voice)</div>
-                    </div>
-
-                    <div class="space-y-4 mb-8">
-                        <div class="flex justify-between text-xs text-gray-400">
-                            <span>20 Hz (Sub-Bass)</span>
-                            <span>1,000 Hz (Mid)</span>
-                            <span>20,000 Hz (Treble)</span>
-                        </div>
-                        <input type="range" id="freq-slider" min="20" max="20000" value="440" step="1" 
-                               class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-brand"
-                               oninput="updateFrequency(this.value)">
-                    </div>
-
-                    <div class="mb-8">
-                        <label class="block text-sm font-medium text-gray-400 mb-3">เลือกย่านความถี่ทดสอบ:</label>
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                            <button onclick="setPreset(60, 'Sub-Bass')" class="bg-gray-800/80 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">60 Hz<br><span class="text-[10px] text-gray-400">Sub-Bass (ครางต่ำ)</span></button>
-                            <button onclick="setPreset(120, 'Bass')" class="bg-gray-800/80 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">120 Hz<br><span class="text-[10px] text-gray-400">Bass (เบสหนัก)</span></button>
-                            <button onclick="setPreset(1000, 'Mid-range')" class="bg-gray-800/80 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">1,000 Hz<br><span class="text-[10px] text-gray-400">Mid Voice</span></button>
-                            <button onclick="setPreset(8000, 'Treble')" class="bg-gray-800/80 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">8,000 Hz<br><span class="text-[10px] text-gray-400">Treble</span></button>
-                            <button onclick="setPreset(15000, 'High')" class="bg-gray-800/80 hover:bg-brand/80 text-white text-xs py-3 px-2 rounded-xl transition border border-gray-700">15,000 Hz<br><span class="text-[10px] text-gray-400">High Air</span></button>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-gray-800">
-                        <button id="audio-toggle-btn" onclick="toggleAudio()" class="w-full sm:w-auto bg-brand hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl transition flex items-center justify-center text-lg shadow-lg">
-                            <i class="fas fa-play mr-2" id="play-icon"></i> <span id="play-btn-text">เริ่มปล่อยคลื่นเสียง</span>
-                        </button>
-                        
-                        <div class="flex items-center space-x-3 w-full sm:w-1/2">
-                            <i class="fas fa-volume-down text-gray-400"></i>
-                            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" 
-                                   class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-brand"
-                                   oninput="updateVolume(this.value)">
-                            <i class="fas fa-volume-up text-gray-400"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety) -->
-                <div class="card-effect rounded-3xl p-6 md:p-8 border-blue-500/30">
-                    <h3 class="text-2xl font-bold text-white mb-2 flex items-center">
-                        <i class="fas fa-shield-alt text-blue-500 mr-3"></i> เครื่องวัดความดังและสุขภาพการได้ยิน (Hearing Safety)
-                    </h3>
-                    <p class="text-gray-400 text-sm mb-6">ทดลองปรับระดับความดังจำลอง (Simulation) และประเมินเวลาฟังปลอดภัยตามมาตรฐาน OSHA</p>
-
-                    <div class="bg-gray-900/90 rounded-2xl p-6 border border-gray-800 text-center mb-6">
-                        <div class="text-gray-400 text-xs">ระดับความดังระดับจำลอง</div>
-                        <div class="text-5xl font-black text-blue-400 my-2"><span id="db-val">85</span> <span class="text-xl font-normal text-gray-400">dB</span></div>
-                        <div id="db-status" class="text-sm font-semibold text-green-400">ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป</div>
-                    </div>
-
-                    <input type="range" id="db-slider" min="40" max="130" value="85" step="1" 
-                           class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-500 mb-6"
-                           oninput="updateDbMeter(this.value)">
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-300 bg-black/40 p-4 rounded-xl border border-gray-800">
-                        <div><strong class="text-white"><i class="fas fa-info-circle text-blue-400 mr-1"></i> สภาพแวดล้อมเปรียบเทียบ:</strong> <span id="db-env">เสียงในห้องทำงาน / เสียงพูดคุยปกติ</span></div>
-                        <div><strong class="text-white"><i class="fas fa-clock text-yellow-400 mr-1"></i> เวลาฟังปลอดภัยสูงสุดต่อวัน:</strong> <span id="db-time">8 ชั่วโมงต่อเนื่อง</span></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <!-- 4. หน้าคำนวณสเปก (Audio Calculator) -->
-    <div id="page-calculator" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-brand text-sm font-semibold tracking-wider uppercase">Engineering & Acoustics Tools</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-1">โปรแกรมคำนวณสเปกเครื่องเสียง</h2>
-                    <p class="text-gray-400 mt-2">คำนวณกำลังขับที่เหมาะสมและปริมาตรตู้ซับวูฟเฟอร์ตามหลักวิศวกรรม</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card-effect rounded-3xl p-8">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-brand/20 text-brand rounded-2xl flex items-center justify-center mr-4 text-2xl font-bold">1</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">คำนวณกำลังขับแอมป์ (RMS)</h3>
-                                <p class="text-xs text-gray-400">หาขนาดกำลังขับเพาเวอร์แอมป์ที่เหมาะกับลำโพง</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-1">กำลัง RMS ของลำโพง (Watts RMS)</label>
-                                <input type="number" id="calc-speaker-rms" value="100" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                            </div>
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-1">จำนวนลำโพงที่ต้องการต่อ (ดอก)</label>
-                                <input type="number" id="calc-speaker-count" value="2" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                            </div>
-                            <button onclick="calculateAmpRMS()" class="w-full bg-brand hover:bg-red-700 text-white font-bold py-3 rounded-xl transition mt-2">คำนวณกำลังขับแอมป์</button>
-
-                            <div id="result-amp" class="hidden bg-gray-900 p-4 rounded-xl border border-gray-800 mt-4">
-                                <span class="text-xs text-gray-400">แนะนำกำลังขับเพาเวอร์แอมป์ที่เหมาะสม:</span>
-                                <div class="text-2xl font-bold text-brand mt-1"><span id="res-amp-val">0</span> Watts RMS</div>
-                                <p class="text-[11px] text-gray-400 mt-1">*คิดคำนวณที่ Headroom +25% เพื่อป้องกันสัญญาณคลิป</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-effect rounded-3xl p-8">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center mr-4 text-2xl font-bold">2</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white">คำนวณปริมาตรตู้ซับวูฟเฟอร์</h3>
-                                <p class="text-xs text-gray-400">หาปริมาตรตู้ปิด/ตู้ลม (Box Enclosure)</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-1">ขนาดดอกซับวูฟเฟอร์ (นิ้ว)</label>
-                                <select id="calc-sub-size" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                                    <option value="8">8 นิ้ว</option>
-                                    <option value="10" selected>10 นิ้ว</option>
-                                    <option value="12">12 นิ้ว</option>
-                                    <option value="15">15 นิ้ว</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-1">ประเภทตู้ซับ</label>
-                                <select id="calc-box-type" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand">
-                                    <option value="sealed">ตู้ปิด (Sealed Box - เบสแน่นนุ่มกระชับ)</option>
-                                    <option value="ported">ตู้ลิ้น/ตู้พอร์ต (Ported Box - เบสแรงดังไกล)</option>
-                                </select>
-                            </div>
-                            <button onclick="calculateSubBox()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition mt-2">คำนวณขนาดปริมาตรตู้</button>
-
-                            <div id="result-box" class="hidden bg-gray-900 p-4 rounded-xl border border-gray-800 mt-4">
-                                <span class="text-xs text-gray-400">ปริมาตรตู้ที่แนะนำ:</span>
-                                <div class="text-2xl font-bold text-blue-400 mt-1"><span id="res-box-cuft">0</span> <span class="text-sm">cu.ft (ลูกบาศก์ฟุต)</span></div>
-                                <div class="text-sm text-gray-300">ประมาณ <span id="res-box-liter" class="font-bold text-white">0</span> ลิตร</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 5. หน้า Booking -->
-    <div id="page-booking" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen flex items-center justify-center">
-            <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="card-effect rounded-3xl p-8 md:p-12 shadow-2xl">
-                    <div class="text-center mb-10">
-                        <span class="inline-block bg-green-500/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-semibold mb-2"><i class="fas fa-cloud mr-1"></i> Live Cloud Integration Demo</span>
-                        <h2 class="text-3xl font-bold text-white mb-2">ระบบจองคิวติดตั้ง (Real-time Cloud)</h2>
-                        <p class="text-gray-400">กรอกข้อมูลระบบจองคิว ข้อมูลจะถูกส่งตรงไปประมวลผลบน Google Sheets ทันที</p>
-                    </div>
-
-                    <form id="bookingForm" name="registerForm" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="fullname" class="block text-sm font-medium text-gray-400 mb-2">ชื่อ - นามสกุล <span class="text-brand">*</span></label>
-                                <input type="text" id="fullname" name="fullname" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
-                            </div>
-                            <div>
-                                <label for="nickname" class="block text-sm font-medium text-gray-400 mb-2">ชื่อเล่น <span class="text-brand">*</span></label>
-                                <input type="text" id="nickname" name="nickname" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="carModel" class="block text-sm font-medium text-gray-400 mb-2">ยี่ห้อ / รุ่นรถยนต์ <span class="text-brand">*</span></label>
-                                <input type="text" id="carModel" name="carModel" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
-                            </div>
-                            <div>
-                                <label for="carYear" class="block text-sm font-medium text-gray-400 mb-2">ปีรถยนต์ <span class="text-brand">*</span></label>
-                                <input type="text" id="carYear" name="carYear" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">เบอร์โทรศัพท์ติดต่อ <span class="text-brand">*</span></label>
-                                <input type="tel" id="phone" name="phone" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition">
-                            </div>
-                            <div>
-                                <label for="appointDate" class="block text-sm font-medium text-gray-400 mb-2">วันที่สะดวก <span class="text-brand">*</span></label>
-                                <input type="date" id="appointDate" name="appointDate" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition [color-scheme:dark]">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="note" class="block text-sm font-medium text-gray-400 mb-2">รายละเอียดเพิ่มเติม</label>
-                            <textarea id="note" name="note" rows="3" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand transition"></textarea>
-                        </div>
-
-                        <button type="submit" id="submitBtn" class="w-full bg-brand hover:bg-red-700 text-white font-bold text-lg py-4 rounded-xl transition mt-8 shadow-lg shadow-red-900/30 flex items-center justify-center">
-                            <i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 6. หน้า Admin Control Panel -->
-    <div id="page-admin" class="page-section hidden fade-in">
-        <section class="pt-32 pb-24 min-h-screen">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-8 border-b border-gray-800 pb-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                     <div>
-                        <h2 class="text-3xl font-bold text-white"><i class="fas fa-user-shield text-yellow-500 mr-2"></i> ระบบจัดการหลังบ้าน (Admin Panel)</h2>
-                        <p class="text-gray-400 text-sm mt-1">ยินดีต้อนรับ ผู้ดูแลระบบ PLFR CAR AUDIO (ระบบจะออกจากระบบอัตโนมัติหากเกิน 45 นาที)</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">AI ที่เข้าใจธุรกิจคุณ</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            แชทบอท (Chatbot) คือโปรแกรมคอมพิวเตอร์ที่ถูกพัฒนาขึ้นมาเพื่อจำลองการสนทนาของมนุษย์ โดยใช้เทคโนโลยี AI ทำให้สามารถโต้ตอบได้อย่างเป็นธรรมชาติ
+                        </p>
                     </div>
-                    <button onclick="logoutAdmin()" class="bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white px-4 py-2 rounded-xl text-sm transition self-start md:self-auto">
-                        ออกจากระบบ
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="card-effect rounded-2xl p-6">
-                        <div class="text-xs text-gray-400">สถานะระบบ</div>
-                        <div class="text-xl font-bold text-green-400 mt-1 flex items-center"><i class="fas fa-check-circle mr-2"></i> พร้อมใช้งาน</div>
-                    </div>
-                    <div class="card-effect rounded-2xl p-6">
-                        <div class="text-xs text-gray-400">การเชื่อมต่อ Google Sheets</div>
-                        <div class="text-xl font-bold text-blue-400 mt-1 flex items-center"><i class="fas fa-link mr-2"></i> เชื่อมต่อแล้ว</div>
-                    </div>
-                    <div class="card-effect rounded-2xl p-6">
-                        <div class="text-xs text-gray-400">อายุเซสชันการล็อกอิน</div>
-                        <div class="text-xl font-bold text-yellow-500 mt-1 flex items-center"><i class="fas fa-clock mr-2"></i> สูงสุด 45 นาที</div>
-                    </div>
-                </div>
-
-                <div class="card-effect rounded-3xl p-8">
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-table mr-2 text-brand"></i> ทางลัดไปจัดการข้อมูลตารางการจอง</h3>
-                    <p class="text-gray-400 text-sm mb-6">คลิกเพื่อเปิดไปยังตาราง Google Sheets เพื่อดู แก้ไข หรือจัดการรายชื่อลูกค้าที่จองเข้ามา</p>
-                    <a href="https://docs.google.com/spreadsheets/d/14l8xuvc3Xn0JptqjWCtJ0Sf3gmkrTo_fPtQ6mWR10Uo/edit?pli=1&gid=0#gid=0" target="_blank" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-xl transition">
-                        <i class="fas fa-external-link-alt mr-2"></i> เปิด Google Sheets ของคุณ
-                    </a>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- JS Logic -->
+    <!-- 3. หน้า ลูกค้า (Customers) -->
+    <div id="page-customers" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">เหมาะกับธุรกิจแบบไหน?</h2>
+                <p class="text-gray-500 text-lg mb-10">ออกแบบมารองรับทุกแพลตฟอร์มหลัก ทั้ง LINE OA และ Facebook Messenger</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="card-effect rounded-2xl p-8">
+                        <i class="fas fa-coffee text-3xl text-messenger mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">คาเฟ่ / ร้านอาหาร</h3>
+                        <p class="text-gray-600 text-sm">รับออเดอร์ แนะนำเมนูซิกเนเจอร์ จัดการคิวอัตโนมัติ</p>
+                    </div>
+                    <div class="card-effect rounded-2xl p-8">
+                        <i class="fas fa-shopping-bag text-3xl text-messenger mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">ร้านค้าออนไลน์</h3>
+                        <p class="text-gray-600 text-sm">ตอบคำถามสต็อก ไซส์ สี ค่าจัดส่ง พร้อมฟังก์ชั่นปิดการขาย</p>
+                    </div>
+                    <div class="card-effect rounded-2xl p-8">
+                        <i class="fas fa-calendar-check text-3xl text-messenger mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">คลินิกและธุรกิจบริการ</h3>
+                        <p class="text-gray-600 text-sm">จองคิว นัดหมาย เช็คตารางเวลาที่ว่างอัตโนมัติ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. หน้า เกี่ยวกับเรา (About Us) -->
+    <div id="page-about" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">เกี่ยวกับเรา</h2>
+                <p class="text-gray-500 text-lg">ECA มุ่งมั่นพัฒนา AI Chatbot เพื่อยกระดับการเติบโตให้กับธุรกิจของคุณ ด้วยเทคโนโลยีที่ทันสมัยและทีมงานคุณภาพ</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- 5. หน้า ติดต่อเรา (Contact) -->
+    <div id="page-contact" class="page-section hidden fade-in">
+        <section class="pt-32 pb-24 min-h-screen flex items-center justify-center">
+            <div class="max-w-2xl mx-auto px-4 w-full">
+                <div class="card-effect rounded-3xl p-10 text-center border-t-4 border-mint">
+                    <div class="w-20 h-20 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-4xl text-mint"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">ติดต่อทีมงาน ECA</h2>
+                    <p class="text-gray-500 mb-10 text-lg">
+                        เลือกช่องทางที่คุณสะดวกเพื่อให้เราดูแลและให้คำปรึกษาเกี่ยวกับธุรกิจของคุณ
+                    </p>
+                    
+                    <!-- ตัวเลือกช่องทางการติดต่อ -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <!-- 1. ปุ่ม LINE OA (ใส่ลิงก์ LINE ตรงบรรทัดด้านล่างนี้) -->
+                        <a href="https://lin.ee/TGAo85J" target="_blank" class="flex flex-col items-center justify-center p-6 bg-white border-2 border-gray-100 rounded-2xl hover:border-green-500 hover:shadow-lg transition-all group cursor-pointer decoration-transparent">
+                            <i class="fab fa-line text-6xl text-green-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">LINE Official</h3>
+                            <p class="text-sm text-gray-500">คลิกเพื่อแชทผ่าน LINE</p>
+                        </a>
+                        
+                        <!-- 2. ปุ่ม Facebook Messenger (ใส่ลิงก์เพจตรงบรรทัดด้านล่างนี้) -->
+                        <a href="https://m.me/YOUR_FACEBOOK_PAGE" target="_blank" class="flex flex-col items-center justify-center p-6 bg-white border-2 border-gray-100 rounded-2xl hover:border-messenger hover:shadow-lg transition-all group cursor-pointer decoration-transparent">
+                            <i class="fab fa-facebook-messenger text-6xl text-messenger mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">Messenger</h3>
+                            <p class="text-sm text-gray-500">คลิกเพื่อแชทผ่านเพจ</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script สำหรับควบคุมการเปลี่ยนหน้า -->
     <script>
-        // Toggle Mobile Menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.className = 'fas fa-times';
-            } else {
-                menu.classList.add('hidden');
-                icon.className = 'fas fa-bars';
-            }
-        }
-
-        // Admin Auth Credentials & Timeout Config (45 นาที)
-        const ADMIN_USER = "plfrcaraudio";
-        const ADMIN_PASS = "Plfraudio6955";
-        const AUTO_LOGOUT_MS = 45 * 60 * 1000;
-        let logoutTimer = null;
-
-        function clearLoginInputs() {
-            const u = document.getElementById('adminUsername');
-            const p = document.getElementById('adminPassword');
-            if (u) u.value = '';
-            if (p) p.value = '';
-        }
-
-        // ฟังก์ชันสำหรับล้างค่าช่องกรอกข้อมูลจองคิวให้เป็นค่าว่างทันที
-        function clearBookingInputs() {
-            const bForm = document.getElementById('bookingForm');
-            if (bForm) {
-                bForm.reset();
-            }
-        }
-
-        function openLoginModal() {
-            clearLoginInputs();
-            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อเปิด Modal
-            document.getElementById('loginError').classList.add('hidden');
-            document.getElementById('adminModal').classList.remove('hidden');
-        }
-
-        function closeLoginModal() {
-            clearLoginInputs();
-            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อปิด Modal
-            document.getElementById('adminModal').classList.add('hidden');
-            document.getElementById('loginError').classList.add('hidden');
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const u = document.getElementById('adminUsername').value;
-            const p = document.getElementById('adminPassword').value;
-
-            if (u === ADMIN_USER && p === ADMIN_PASS) {
-                sessionStorage.setItem('isAdminLoggedIn', 'true');
-                sessionStorage.setItem('adminLoginTime', Date.now().toString());
-                clearLoginInputs();
-                closeLoginModal();
-                updateAdminUI();
-                switchPage('admin');
-                alert('🔓 เข้าสู่ระบบสำเร็จ! (ระบบจะออกจากระบบอัตโนมัติเมื่อครบ 45 นาที)');
-            } else {
-                document.getElementById('loginError').classList.remove('hidden');
-            }
-        }
-
-        function checkAdminSession() {
-            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
-            if (!isLoggedIn) return false;
-
-            const loginTime = parseInt(sessionStorage.getItem('adminLoginTime') || '0', 10);
-            const now = Date.now();
-            const elapsedTime = now - loginTime;
-
-            if (elapsedTime >= AUTO_LOGOUT_MS) {
-                performAutoLogout();
-                return false;
-            } else {
-                if (logoutTimer) clearTimeout(logoutTimer);
-                logoutTimer = setTimeout(performAutoLogout, AUTO_LOGOUT_MS - elapsedTime);
-                return true;
-            }
-        }
-
-        function performAutoLogout() {
-            sessionStorage.removeItem('isAdminLoggedIn');
-            sessionStorage.removeItem('adminLoginTime');
-            clearLoginInputs();
-            if (logoutTimer) clearTimeout(logoutTimer);
-            updateAdminUI();
-            switchPage('home');
-            alert('⏱️ หมดเวลาเชื่อมต่อ (เกิน 45 นาที) ระบบทำการออกจากระบบให้อัตโนมัติเพื่อความปลอดภัย');
-        }
-
-        function logoutAdmin() {
-            sessionStorage.removeItem('isAdminLoggedIn');
-            sessionStorage.removeItem('adminLoginTime');
-            clearLoginInputs();
-            if (logoutTimer) clearTimeout(logoutTimer);
-            updateAdminUI();
-            switchPage('home');
-            alert('🔒 ออกจากระบบเรียบร้อยแล้ว');
-        }
-
-        function updateAdminUI() {
-            const isLoggedIn = checkAdminSession();
-            
-            const navAdmin = document.getElementById('nav-admin');
-            const navAdminMobile = document.getElementById('nav-admin-mobile');
-            const btnLogin = document.getElementById('login-btn-nav');
-            const btnLoginMobile = document.getElementById('login-btn-mobile');
-            const btnLogout = document.getElementById('logout-btn-nav');
-            const btnLogoutMobile = document.getElementById('logout-btn-mobile');
-
-            if (isLoggedIn) {
-                if (navAdmin) navAdmin.classList.remove('hidden');
-                if (navAdminMobile) navAdminMobile.classList.remove('hidden');
-                if (btnLogin) btnLogin.classList.add('hidden');
-                if (btnLoginMobile) btnLoginMobile.classList.add('hidden');
-                if (btnLogout) btnLogout.classList.remove('hidden');
-                if (btnLogoutMobile) btnLogoutMobile.classList.remove('hidden');
-            } else {
-                if (navAdmin) navAdmin.classList.add('hidden');
-                if (navAdminMobile) navAdminMobile.classList.add('hidden');
-                if (btnLogin) btnLogin.classList.remove('hidden');
-                if (btnLoginMobile) btnLoginMobile.classList.remove('hidden');
-                if (btnLogout) btnLogout.classList.add('hidden');
-                if (btnLogoutMobile) btnLogoutMobile.classList.add('hidden');
-            }
-        }
-
-        function checkAdminPage() {
-            if (checkAdminSession()) {
-                switchPage('admin');
-            } else {
-                openLoginModal();
-            }
-        }
-
-        function switchPage(pageName) {
-            clearBookingInputs(); // ล้างค่าฟอร์มจองคิวเมื่อมีการสลับหน้า
-            if (isPlaying) { stopAudio(); }
-
-            if (pageName === 'admin' && !checkAdminSession()) {
-                openLoginModal();
-                return;
-            }
-
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.add('hidden'));
-            
-            const targetPage = document.getElementById('page-' + pageName);
-            if (targetPage) targetPage.classList.remove('hidden');
-
-            const navIds = ['nav-home', 'nav-product', 'nav-frequency', 'nav-calculator', 'nav-admin'];
-            navIds.forEach(id => {
-                const el = document.getElementById(id);
-                if(el) {
-                    el.classList.remove('text-brand', 'text-yellow-400');
-                    el.classList.add('text-gray-300');
-                }
+        function switchPage(pageId) {
+            // ซ่อนทุกหน้า
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.add('hidden');
             });
-
-            let activeNav = pageName;
-            if (['brands-headunit', 'brands-poweramp', 'brands-speaker', 'brands-subwoofer', 'brands-dsp', 'kenwood-headunit', 'pioneer-headunit', 'alpine-headunit', 'jvc-headunit', 'nakamichi-headunit', 'sony-headunit'].includes(pageName)) {
-                activeNav = 'product';
-            }
-
-            const activeEl = document.getElementById('nav-' + activeNav);
-            if(activeEl) {
-                activeEl.classList.remove('text-gray-300');
-                activeEl.classList.add(activeNav === 'admin' ? 'text-yellow-400' : 'text-brand');
-            }
-            
+            // แสดงหน้าที่เลือก
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            // เลื่อนจอขึ้นบนสุด
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Web Audio Context & Oscilloscope Visualizer
-        let audioCtx = null;
-        let oscillator = null;
-        let gainNode = null;
-        let analyser = null;
-        let isPlaying = false;
-        let animFrameId = null;
-
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
-
-        function toggleAudio() {
-            initAudio();
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-
-            if (isPlaying) {
-                stopAudio();
-            } else {
-                startAudio();
-            }
-        }
-
-        function startAudio() {
-            oscillator = audioCtx.createOscillator();
-            gainNode = audioCtx.createGain();
-            analyser = audioCtx.createAnalyser();
-
-            const freq = parseFloat(document.getElementById('freq-slider').value);
-            const volume = parseFloat(document.getElementById('volume-slider').value);
-
-            if (freq <= 60) {
-                oscillator.type = 'triangle';
-                gainNode.gain.setValueAtTime(Math.min(volume * 1.5, 1.0), audioCtx.currentTime);
-            } else {
-                oscillator.type = 'sine';
-                gainNode.gain.setValueAtTime(volume, audioCtx.currentTime);
-            }
-
-            oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            analyser.fftSize = 2048;
-
-            oscillator.connect(gainNode);
-            gainNode.connect(analyser);
-            analyser.connect(audioCtx.destination);
-
-            oscillator.start();
-            isPlaying = true;
-
-            document.getElementById('play-icon').className = 'fas fa-stop mr-2';
-            document.getElementById('play-btn-text').innerText = 'หยุดปล่อยคลื่นเสียง';
-            document.getElementById('audio-toggle-btn').classList.replace('bg-brand', 'bg-gray-700');
-            document.getElementById('wave-status').innerText = 'สถานะ: ปล่อยสัญญาณเสียง...';
-            document.getElementById('wave-status').className = 'text-green-400';
-
-            drawVisualizer();
-        }
-
-        function stopAudio() {
-            if (oscillator) {
-                oscillator.stop();
-                oscillator.disconnect();
-            }
-            if (animFrameId) {
-                cancelAnimationFrame(animFrameId);
-            }
-            isPlaying = false;
-
-            document.getElementById('play-icon').className = 'fas fa-play mr-2';
-            document.getElementById('play-btn-text').innerText = 'เริ่มปล่อยคลื่นเสียง';
-            document.getElementById('audio-toggle-btn').classList.replace('bg-gray-700', 'bg-brand');
-            document.getElementById('wave-status').innerText = 'สถานะ: ปิดเสียง';
-            document.getElementById('wave-status').className = 'text-gray-500';
-
-            const canvas = document.getElementById('oscilloscope');
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        function drawVisualizer() {
-            const canvas = document.getElementById('oscilloscope');
-            const ctx = canvas.getContext('2d');
-            const bufferLength = analyser.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLength);
-
-            function renderFrame() {
-                animFrameId = requestAnimationFrame(renderFrame);
-                analyser.getByteTimeDomainData(dataArray);
-
-                ctx.fillStyle = '#030712';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.lineWidth = 2;
-                ctx.strokeStyle = '#E63946';
-                ctx.beginPath();
-
-                const sliceWidth = canvas.width * 1.0 / bufferLength;
-                let x = 0;
-
-                for (let i = 0; i < bufferLength; i++) {
-                    const v = dataArray[i] / 128.0;
-                    const y = v * canvas.height / 2;
-
-                    if (i === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                    x += sliceWidth;
-                }
-
-                ctx.lineTo(canvas.width, canvas.height / 2);
-                ctx.stroke();
-            }
-
-            renderFrame();
-        }
-
-        function updateFrequency(val) {
-            val = parseFloat(val);
-            document.getElementById('freq-display').innerText = val;
-            
-            if (isPlaying && oscillator) {
-                oscillator.frequency.setValueAtTime(val, audioCtx.currentTime);
-                if (val <= 60) {
-                    oscillator.type = 'triangle';
-                } else {
-                    oscillator.type = 'sine';
-                }
-            }
-
-            const typeLabel = document.getElementById('freq-type');
-
-            if (val <= 60) {
-                typeLabel.innerText = "ย่านเสียงเบสต่ำลึก (Sub-Bass - ครางต่ำอื่อๆ)";
-                typeLabel.className = "text-lg font-medium text-red-500 mt-2";
-            } else if (val < 250) {
-                typeLabel.innerText = "ย่านเสียงเบส (Bass - หนักแน่น)";
-                typeLabel.className = "text-lg font-medium text-orange-400 mt-2";
-            } else if (val < 4000) {
-                typeLabel.innerText = "ย่านเสียงกลาง (Mid-Range / Human Voice)";
-                typeLabel.className = "text-lg font-medium text-yellow-400 mt-2";
-            } else {
-                typeLabel.innerText = "ย่านเสียงแหลม (Treble / High Frequency)";
-                typeLabel.className = "text-lg font-medium text-blue-400 mt-2";
-            }
-        }
-
-        function setPreset(freq, label) {
-            document.getElementById('freq-slider').value = freq;
-            updateFrequency(freq);
-        }
-
-        function updateVolume(val) {
-            if (isPlaying && gainNode) {
-                const freq = parseFloat(document.getElementById('freq-slider').value);
-                const baseVol = parseFloat(val);
-                gainNode.gain.setValueAtTime(freq <= 60 ? Math.min(baseVol * 1.5, 1.0) : baseVol, audioCtx.currentTime);
-            }
-        }
-
-        // Decibel Meter Logic (Simulation)
-        function updateDbMeter(val) {
-            document.getElementById('db-val').innerText = val;
-            const status = document.getElementById('db-status');
-            const env = document.getElementById('db-env');
-            const time = document.getElementById('db-time');
-
-            if (val < 70) {
-                status.innerText = "ระดับเสียงเงียบและปลอดภัยมาก";
-                status.className = "text-sm font-semibold text-green-400";
-                env.innerText = "ห้องเงียบ / เสียงกระซิบ / ร้านกาแฟ";
-                time.innerText = "ฟังได้ไม่จำกัดเวลา";
-            } else if (val <= 85) {
-                status.innerText = "ระดับเสียงปลอดภัยสำหรับการฟังทั่วไป";
-                status.className = "text-sm font-semibold text-blue-400";
-                env.innerText = "เสียงเครื่องยนต์รถยนต์ปกติ / เสียงห้องโดยสาร";
-                time.innerText = "8 ชั่วโมงต่อเนื่อง (มาตรฐาน OSHA)";
-            } else if (val <= 100) {
-                status.innerText = "ระดับเสียงค่อนข้างดัง ควรระวังเมื่อฟังเป็นเวลานาน";
-                status.className = "text-sm font-semibold text-yellow-400";
-                env.innerText = "เสียงระบบเครื่องเสียงรถยนต์ระดับดังปานกลาง / ไซเรน";
-                time.innerText = "ไม่เกิน 2 ชั่วโมงต่อเนื่อง";
-            } else {
-                status.innerText = "⚠️ เสียงดังมากเกินไป! อาจเป็นอันตรายต่อแก้วหู";
-                status.className = "text-sm font-semibold text-red-500";
-                env.innerText = "คอนเสิร์ต / ตู้ซับวูฟเฟอร์แข่งขันพลังสูง";
-                time.innerText = "ไม่เกิน 15 นาทีต่อเนื่อง (ต้องสวมใส่อุปกรณ์ป้องกัน)";
-            }
-        }
-
-        // Calculators
-        function calculateAmpRMS() {
-            const rms = parseFloat(document.getElementById('calc-speaker-rms').value) || 0;
-            const count = parseInt(document.getElementById('calc-speaker-count').value) || 0;
-            const recommendedAmp = Math.round((rms * count) * 1.25);
-
-            document.getElementById('res-amp-val').innerText = recommendedAmp.toLocaleString();
-            document.getElementById('result-amp').classList.remove('hidden');
-        }
-
-        function calculateSubBox() {
-            const size = document.getElementById('calc-sub-size').value;
-            const type = document.getElementById('calc-box-type').value;
-
-            let cuft = 0;
-            if (size === "8") cuft = (type === 'sealed') ? 0.35 : 0.6;
-            else if (size === "10") cuft = (type === 'sealed') ? 0.65 : 1.2;
-            else if (size === "12") cuft = (type === 'sealed') ? 1.0 : 1.75;
-            else if (size === "15") cuft = (type === 'sealed') ? 1.8 : 3.0;
-
-            const liters = (cuft * 28.3168).toFixed(1);
-
-            document.getElementById('res-box-cuft').innerText = cuft;
-            document.getElementById('res-box-liter').innerText = liters;
-            document.getElementById('result-box').classList.remove('hidden');
-        }
-
-        // Google Sheets Form Submit
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzPBkfw1Oy34NLqZp8uLpFXdxoch1HZYv03Ngks6xwOtAKCA64qeanujFanO_yD2JbMOA/exec';
-        const form = document.getElementById('bookingForm');
-        const submitBtn = document.getElementById('submitBtn');
-        let isSubmitting = false;
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            if (isSubmitting) return; 
-            
-            isSubmitting = true;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> กำลังส่งข้อมูลไปยัง Cloud...';
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => {
-                alert('🎉 บันทึกข้อมูลสำเร็จ! ข้อมูลถูกบันทิกลงระบบ Cloud เรียบร้อยแล้ว');
-                clearBookingInputs();
-                isSubmitting = false;
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
-            })
-            .catch(error => {
-                alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
-                isSubmitting = false;
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ยืนยันการจองคิว';
-            });
-        });
-
-        window.onload = function() {
-            clearLoginInputs();
-            clearBookingInputs();
-            updateAdminUI();
-        };
     </script>
 </body>
 </html>
